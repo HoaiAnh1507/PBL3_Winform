@@ -1,0 +1,111 @@
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\DoHoaC#.exe.config
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\DoHoaC#.exe
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\DoHoaC#.pdb
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\Logincontrol.pdb
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.AssemblyReference.cache
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.DanhMucHinhAnh.resources
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.DonHang.resources
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormDonHangMoi.resources
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormHeThong.resources
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormDangNhap.resources
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.HeThong.resources
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.KhachHang.resources
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.NCC.resources
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.NhanVien.resources
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.Properties.Resources.resources
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.GenerateResource.cache
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.CoreCompileInputs.cache
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.Up2Date
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.exe
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.pdb
+C:\Users\g15 5511\Desktop\TI\C#\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.SanPham.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\DoHoaC#.exe.config
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\DoHoaC#.exe
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\Logincontrol.dll
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\Logincontrol.pdb
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.AssemblyReference.cache
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.SanPham.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.DanhMucHinhAnh.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.DonHang.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormDonHangMoi.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormHeThong.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormDangNhap.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.HeThong.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.KhachHang.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.NCC.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.NhanVien.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.Properties.Resources.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.GenerateResource.cache
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.CoreCompileInputs.cache
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.Up2Date
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.exe
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.pdb
+D:\Ky 2 nam 2 2023-2024\PBL3\PBL3\PBL3\PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\DoHoaC#.pdb
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\bin\Debug\DoHoaC#.exe.config
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\bin\Debug\DoHoaC#.exe
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\bin\Debug\DoHoaC#.pdb
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\bin\Debug\Logincontrol.pdb
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.AssemblyReference.cache
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.SanPham.resources
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.DanhMucHinhAnh.resources
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.DonHang.resources
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormDonHangMoi.resources
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormHeThong.resources
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormDangNhap.resources
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.HeThong.resources
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.KhachHang.resources
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.NCC.resources
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.NhanVien.resources
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.Properties.Resources.resources
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.GenerateResource.cache
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.CoreCompileInputs.cache
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.Up2Date
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.exe
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.pdb
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.AssemblyReference.cache
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.SanPham.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.DanhMucHinhAnh.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.DonHang.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormDonHangMoi.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormHeThong.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormDangNhap.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.HeThong.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.KhachHang.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.NCC.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.NhanVien.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.Properties.Resources.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.GenerateResource.cache
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.CoreCompileInputs.cache
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\DoHoaC#.exe.config
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\DoHoaC#.exe
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\DoHoaC#.pdb
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\Logincontrol.dll
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\Logincontrol.pdb
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.Up2Date
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.exe
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.pdb
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.ThongKe.resources
+C:\Users\g15 5511\Desktop\TI\C#\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.ThongKe.resources
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\DoHoaC#.exe.config
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\DoHoaC#.exe
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\Logincontrol.dll
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\Logincontrol.pdb
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.AssemblyReference.cache
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.SanPham.resources
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.DanhMucHinhAnh.resources
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.DonHang.resources
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormHeThong.resources
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormDangNhap.resources
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.HeThong.resources
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.KhachHang.resources
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.NCC.resources
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.NhanVien.resources
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.Properties.Resources.resources
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.ThongKe.resources
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.GenerateResource.cache
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.Up2Date
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.exe
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.pdb
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\DoHoaC#.pdb
+C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormDonHangChiTiet.resources
