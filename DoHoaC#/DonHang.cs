@@ -13,7 +13,6 @@ namespace DoHoaC_
 {
     public partial class DonHang : UserControl
     {
-
         public DonHang()
         {
             InitializeComponent();
