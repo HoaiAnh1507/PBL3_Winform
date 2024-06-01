@@ -178,8 +178,7 @@ namespace DoHoaC_
                 if (QLDHCT.Instance.KiemTraSPTonTai(dh.ID_DH, dh.ID_SP))
                 {
                     QLDHCT.Instance.UpdateSoLuong(dh.ID_DH, dh.ID_SP, dh.SOLUONG);
-                    
-                    dataGridView1.DataSource = QLDHCT.Instance.GetDHCT(currentIddh).Tables["DONHANGCHITIET"];
+                    dataGridView1.DataSource = QLDHCT.Instance.GetDHCT(Convert.ToInt32(dh.ID_DH)).Tables["DONHANGCHITIET"];
                 }
                 else
                 {

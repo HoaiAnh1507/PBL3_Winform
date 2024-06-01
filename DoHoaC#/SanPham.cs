@@ -34,42 +34,10 @@ namespace DoHoaC_
         }
         private void buttonThem_Click(object sender, EventArgs e)
         {
-            DTB_SP sp = new DTB_SP
+            if (MessageBox.Show("Xác nhận thêm thông tin sản phẩm mới?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
-                TEN_DANH_MUC = comboBoxDanhMuc.Text,
-                TEN_SAN_PHAM = textBoxTen.Text,
-                ID_NCC = cbbIdNCC.Text,
-                DON_VI = textBoxDonVi.Text,
-                DON_GIA = textBoxDonGia.Text,
-                SO_LUONG_CON_LAI = textBoxSL.Text
-            };
-
-            try
-            {
-                QLSP.Instance.AddSP(sp); // Thêm Sản Phẩm mới
-
-                if (!comboBoxDanhMuc.Items.Contains(sp.TEN_DANH_MUC))
-                {
-                    comboBoxDanhMuc.Items.Add(sp.TEN_DANH_MUC); // Thêm danh mục mới vào comboBox
-                    comboBoxDanhMuc.SelectedItem = sp.TEN_DANH_MUC; // Chọn danh mục mới vừa thêm
-                    //ShowComboBox();
-                }
-                MessageBox.Show("Thêm Sản Phẩm thành công.");
-                ShowAllSanPham();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi khi thêm Sản Phẩm: {ex.Message}");
-            }
-        }
-        private void buttonSua_Click(object sender, EventArgs e)
-        {
-            if (dataGridView.SelectedRows.Count > 0)
-            {
-                string ID_SP = dataGridView.SelectedRows[0].Cells["ID_SP"].Value.ToString();
                 DTB_SP sp = new DTB_SP
                 {
-                    ID_SP = ID_SP,
                     TEN_DANH_MUC = comboBoxDanhMuc.Text,
                     TEN_SAN_PHAM = textBoxTen.Text,
                     ID_NCC = cbbIdNCC.Text,
@@ -80,39 +48,80 @@ namespace DoHoaC_
 
                 try
                 {
-                    QLSP.Instance.UpdateSP(ID_SP, sp); // Cập nhật thông tin Sản Phẩm
-                    MessageBox.Show("Cập nhật Sản Phẩm thành công.");
-                    ShowAllSanPham(); // Tải lại dữ liệu sau khi sửa
+                    QLSP.Instance.AddSP(sp); // Thêm Sản Phẩm mới
+
+                    if (!comboBoxDanhMuc.Items.Contains(sp.TEN_DANH_MUC))
+                    {
+                        comboBoxDanhMuc.Items.Add(sp.TEN_DANH_MUC); // Thêm danh mục mới vào comboBox
+                        comboBoxDanhMuc.SelectedItem = sp.TEN_DANH_MUC; // Chọn danh mục mới vừa thêm
+                                                                        //ShowComboBox();
+                    }
+                    MessageBox.Show("Thêm Sản Phẩm thành công.");
+                    ShowAllSanPham();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Lỗi khi cập nhật Sản Phẩm: {ex.Message}");
+                    MessageBox.Show($"Lỗi khi thêm Sản Phẩm: {ex.Message}");
                 }
             }
-            else
+        }
+        private void buttonSua_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Xác nhận sửa thông tin sản phẩm?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
-                MessageBox.Show("Vui lòng chọn một Sản Phẩm để sửa.");
+                if (dataGridView.SelectedRows.Count > 0)
+                {
+                    string ID_SP = dataGridView.SelectedRows[0].Cells["ID_SP"].Value.ToString();
+                    DTB_SP sp = new DTB_SP
+                    {
+                        ID_SP = ID_SP,
+                        TEN_DANH_MUC = comboBoxDanhMuc.Text,
+                        TEN_SAN_PHAM = textBoxTen.Text,
+                        ID_NCC = cbbIdNCC.Text,
+                        DON_VI = textBoxDonVi.Text,
+                        DON_GIA = textBoxDonGia.Text,
+                        SO_LUONG_CON_LAI = textBoxSL.Text
+                    };
+
+                    try
+                    {
+                        QLSP.Instance.UpdateSP(ID_SP, sp); // Cập nhật thông tin Sản Phẩm
+                        MessageBox.Show("Cập nhật Sản Phẩm thành công.");
+                        ShowAllSanPham(); // Tải lại dữ liệu sau khi sửa
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi khi cập nhật Sản Phẩm: {ex.Message}");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một Sản Phẩm để sửa.");
+                }
             }
         }
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-            if (dataGridView.SelectedRows.Count > 0)
+            if (MessageBox.Show("Xác nhận xóa thông tin sản phẩm?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
-                string ID_SP = dataGridView.SelectedRows[0].Cells["ID_SP"].Value.ToString();
-                try
+                if (dataGridView.SelectedRows.Count > 0)
                 {
-                    QLSP.Instance.DeleteSP(ID_SP); // Xóa Sản Phẩm
-                    MessageBox.Show("Xóa Sản Phẩm thành công.");
-                    ShowAllSanPham(); // Tải lại dữ liệu sau khi xóa
+                    string ID_SP = dataGridView.SelectedRows[0].Cells["ID_SP"].Value.ToString();
+                    try
+                    {
+                        QLSP.Instance.DeleteSP(ID_SP); // Xóa Sản Phẩm
+                        MessageBox.Show("Xóa Sản Phẩm thành công.");
+                        ShowAllSanPham(); // Tải lại dữ liệu sau khi xóa
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi khi xóa Sản Phẩm: {ex.Message}");
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show($"Lỗi khi xóa Sản Phẩm: {ex.Message}");
+                    MessageBox.Show("Vui lòng chọn một Sản Phẩm để xóa.");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn một Sản Phẩm để xóa.");
             }
         }
         public void binding()

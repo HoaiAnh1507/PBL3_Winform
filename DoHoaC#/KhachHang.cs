@@ -50,7 +50,7 @@ namespace DoHoaC_
         }
         private void buttonSua_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Xác nhận chỉnh sửa thông tin khác hàng?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Xác nhận chỉnh sửa thông tin khách hàng?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
