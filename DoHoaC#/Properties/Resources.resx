@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="nen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nen1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="banchan50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\banchan50.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -126,6 +129,9 @@
   </data>
   <data name="pngtree-cute-colorful-cat-paw-imprint-background-image_503830" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pngtree-cute-colorful-cat-paw-imprint-background-image_503830.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hong" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hong.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,16 +145,16 @@
   <data name="logomoi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logomoi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logo30" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pngtree-pink-cute-cat-paw-background-image_530116" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pngtree-pink-cute-cat-paw-background-image_530116.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hong" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hong.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="23085108-9b1b-4448-a3f4-3d19f55de095" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\23085108-9b1b-4448-a3f4-3d19f55de095.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

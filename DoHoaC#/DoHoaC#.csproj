@@ -53,9 +53,16 @@
     <Compile Include="Const.cs" />
     <Compile Include="DTB_DH.cs" />
     <Compile Include="DTB_SP.cs" />
+    <Compile Include="FormDoiMK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDoiMK.Designer.cs">
+      <DependentUpon>FormDoiMK.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLDH.cs" />
     <Compile Include="QLDHCT.cs" />
-    <Compile Include="QLTK.cs" />
+    <Compile Include="QLTaiKhoan.cs" />
+    <Compile Include="QLThongKe.cs" />
     <Compile Include="SanPham.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -127,13 +134,16 @@
     <Compile Include="ConnectionString.cs" />
     <Compile Include="QLNV.cs" />
     <Compile Include="QLSP.cs" />
-    <Compile Include="TaiKhoan.cs" />
+    <Compile Include="DTB_TaiKhoan.cs" />
     <Compile Include="ThongKe.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ThongKe.Designer.cs">
       <DependentUpon>ThongKe.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormDoiMK.resx">
+      <DependentUpon>FormDoiMK.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SanPham.resx">
       <DependentUpon>SanPham.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,6 +232,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hong.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nen1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23085108-9b1b-4448-a3f4-3d19f55de095.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

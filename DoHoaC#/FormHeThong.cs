@@ -19,128 +19,75 @@ namespace DoHoaC_
         }
         private void BThethong_Click(object sender, EventArgs e)
         {
-            heThong1.Show();
-
-            sanPham1.Hide();
-            khachHang1.Hide();
-            ncc1.Hide();
-            nhanVien1.Hide();
-            donHang1.Hide();
-            //danhMucHinhAnh1.Hide();
-
-            BThethong.BackColor = Color.AliceBlue;
-
-            BTSanPham.BackColor = Color.FromArgb(31, 53, 66);
-            BTSanPham.ForeColor = Color.Black;
-            BTkhachhang.BackColor = Color.FromArgb(31, 53, 66);
-            BTncc.BackColor = Color.FromArgb(31, 53, 66);
-            BTnhanvien.BackColor = Color.FromArgb(31, 53, 66);
-            BTdonhang.BackColor = Color.FromArgb(31, 53, 66);
-            thongKe1.Hide();
-            BTthongke.BackColor = Color.FromArgb(31, 53, 66);
+            ShowUserControl(heThong1);
+            SetButtonColor(BThethong);
         }
-
         private void BTSanPham_Click(object sender, EventArgs e)
         {
-            sanPham1.Show();
-
-            heThong1.Hide();
-            khachHang1.Hide();
-            ncc1.Hide();
-            nhanVien1.Hide();
-            donHang1.Hide();
-            thongKe1.Hide();
-            //danhMucHinhAnh1.Hide();
-
-            BTSanPham.BackColor = Color.AliceBlue;
-
-            BThethong.BackColor = Color.FromArgb(31, 53, 66);
-            BTkhachhang.BackColor = Color.FromArgb(31, 53, 66);
-            BTncc.BackColor = Color.FromArgb(31, 53, 66);
-            BTnhanvien.BackColor = Color.FromArgb(31, 53, 66);
-            BTdonhang.BackColor = Color.FromArgb(31, 53, 66);
-            
-            BTthongke.BackColor = Color.FromArgb(31, 53, 66);
+            ShowUserControl(sanPham1);
+            SetButtonColor(BTSanPham);
         }
         private void BTdonhang_Click(object sender, EventArgs e)
         {
-            heThong1.Hide();
-            sanPham1.Hide();
-            khachHang1.Hide();
-            ncc1.Hide();
-            nhanVien1.Hide();
-            donHang1.Show();
-            //danhMucHinhAnh1.Hide();
-
-            BTSanPham.BackColor = Color.FromArgb(31, 53, 66);
-
-            BThethong.BackColor = Color.FromArgb(31, 53, 66);
-            BTkhachhang.BackColor = Color.FromArgb(31, 53, 66);
-            BTncc.BackColor = Color.FromArgb(31, 53, 66);
-            BTnhanvien.BackColor = Color.FromArgb(31, 53, 66);
-            BTdonhang.BackColor = Color.AliceBlue;
-            thongKe1.Hide();
-            BTthongke.BackColor = Color.FromArgb(31, 53, 66);
+            ShowUserControl(donHang1);
+            SetButtonColor(BTdonhang);
         }
-
         private void BTkhachhang_Click(object sender, EventArgs e)
         {
-            heThong1.Hide();
-            sanPham1.Hide();
-            khachHang1.Show();
-            ncc1.Hide();
-            nhanVien1.Hide();
-            donHang1.Hide();
-            //danhMucHinhAnh1.Hide();
-            BTSanPham.BackColor = Color.FromArgb(31, 53, 66);
-
-            BThethong.BackColor = Color.FromArgb(31, 53, 66);
-            BTkhachhang.BackColor = Color.AliceBlue;
-            BTncc.BackColor = Color.FromArgb(31, 53, 66);
-            BTnhanvien.BackColor = Color.FromArgb(31, 53, 66);
-            BTdonhang.BackColor = Color.FromArgb(31, 53, 66);
-            thongKe1.Hide();
-            BTthongke.BackColor = Color.FromArgb(31, 53, 66);
-
+            ShowUserControl(khachHang1);
+            SetButtonColor(BTkhachhang);
         }
-
         private void BTncc_Click(object sender, EventArgs e)
         {
-            heThong1.Hide();
-            sanPham1.Hide();
-            khachHang1.Hide();
-            ncc1.Show();
-            nhanVien1.Hide();
-            donHang1.Hide();
-            thongKe1.Hide();
-            //danhMucHinhAnh1.Hide();
-            BTSanPham.BackColor = Color.FromArgb(31, 53, 66);
-            BThethong.BackColor = Color.FromArgb(31, 53, 66);
-            BTkhachhang.BackColor = Color.FromArgb(31, 53, 66);
-            BTncc.BackColor = Color.AliceBlue;
-            BTnhanvien.BackColor = Color.FromArgb(31, 53, 66);
-            BTdonhang.BackColor = Color.FromArgb(31, 53, 66);
-            BTthongke.BackColor = Color.FromArgb(31, 53, 66);
+            ShowUserControl(ncc1);
+            SetButtonColor(BTncc);
         }
-
         private void BTnhanvien_Click(object sender, EventArgs e)
+        {
+            ShowUserControl(nhanVien1);
+            SetButtonColor(BTnhanvien);
+        }
+        private void FormHeThong_Load(object sender, EventArgs e)
+        {
+            PhanQuyen();
+            ShowUserControl(heThong1);
+            SetButtonColor(BThethong);
+        }
+        private void BTthongke_Click(object sender, EventArgs e)
+        {
+            ShowUserControl(thongKe1);
+            SetButtonColor(BTthongke);
+        }
+        private void ShowUserControl(UserControl userControl)
         {
             heThong1.Hide();
             sanPham1.Hide();
             khachHang1.Hide();
             ncc1.Hide();
-            nhanVien1.Show();
+            nhanVien1.Hide();
             donHang1.Hide();
             thongKe1.Hide();
-            //danhMucHinhAnh1.Hide();
+            userControl.Show();
+        }
+        private void SetButtonColor(Button button)
+        {
+            BTthongke.BackColor = Color.FromArgb(5, 63, 92);
+            BTSanPham.BackColor = Color.FromArgb(5, 63, 92);
+            BThethong.BackColor = Color.FromArgb(5, 63, 92);
+            BTkhachhang.BackColor = Color.FromArgb(5, 63, 92);
+            BTncc.BackColor = Color.FromArgb(5, 63, 92);
+            BTnhanvien.BackColor = Color.FromArgb(5, 63, 92);
+            BTdonhang.BackColor = Color.FromArgb(5, 63, 92);
+            button.BackColor = Color.AliceBlue;
 
-            BTSanPham.BackColor = Color.FromArgb(31, 53, 66);
-            BThethong.BackColor = Color.FromArgb(31, 53, 66);
-            BTkhachhang.BackColor = Color.FromArgb(31, 53, 66);
-            BTncc.BackColor = Color.FromArgb(31, 53, 66);
-            BTnhanvien.BackColor = Color.AliceBlue;
-            BTdonhang.BackColor = Color.FromArgb(31, 53, 66);
-            BTthongke.BackColor = Color.FromArgb(31, 53, 66);
+            BTthongke.ForeColor = Color.FromArgb(224, 224, 224);
+            BTSanPham.ForeColor = Color.FromArgb(224, 224, 224);
+            BThethong.ForeColor = Color.FromArgb(224, 224, 224);
+            BTkhachhang.ForeColor = Color.FromArgb(224, 224, 224);
+            BTncc.ForeColor = Color.FromArgb(224, 224, 224);
+            BTnhanvien.ForeColor = Color.FromArgb(224, 224, 224);
+            BTdonhang.ForeColor = Color.FromArgb(224, 224, 224);
+            button.ForeColor = Color.Black;
         }
         void PhanQuyen()
         {
@@ -149,32 +96,7 @@ namespace DoHoaC_
                 BTnhanvien.Enabled = false;
                 BTncc.Enabled = false;
             }
-
         }
-
-        private void FormHeThong_Load(object sender, EventArgs e)
-        {
-            PhanQuyen();
-            heThong1.Show();
-            sanPham1.Hide();
-            khachHang1.Hide();
-            ncc1.Hide();
-            nhanVien1.Hide();
-            donHang1.Hide();
-            thongKe1.Hide();
-            //danhMucHinhAnh1.Hide();
-
-            BTSanPham.BackColor = Color.FromArgb(31, 53, 66);
-            BThethong.BackColor = Color.AliceBlue;
-            BTkhachhang.BackColor = Color.FromArgb(31, 53, 66);
-            BTncc.BackColor = Color.FromArgb(31, 53, 66);
-            BTnhanvien.BackColor = Color.FromArgb(31, 53, 66);
-            BTdonhang.BackColor = Color.FromArgb(31, 53, 66);
-
-            BTthongke.BackColor = Color.FromArgb(31, 53, 66);
-        }
-
-
         private void FormHeThong_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (isExit == true)
@@ -184,7 +106,6 @@ namespace DoHoaC_
                     e.Cancel = true;
                 }
             }
-
         }
         private void FormHeThong_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -192,28 +113,6 @@ namespace DoHoaC_
             {
                 Application.Exit();
             }
-
-        }
-
-        private void BTthongke_Click(object sender, EventArgs e)
-        {
-            heThong1.Hide();
-            sanPham1.Hide();
-            khachHang1.Hide();
-            ncc1.Hide();
-            nhanVien1.Hide();
-            donHang1.Hide();
-            thongKe1.Show();
-            BTthongke.BackColor = Color.AliceBlue;
-            //danhMucHinhAnh1.Hide();
-            BTSanPham.BackColor = Color.FromArgb(31, 53, 66);
-
-            BThethong.BackColor = Color.FromArgb(31, 53, 66);
-            BTkhachhang.BackColor = Color.FromArgb(31, 53, 66);
-            BTncc.BackColor = Color.FromArgb(31, 53, 66);
-            BTnhanvien.BackColor = Color.FromArgb(31, 53, 66);
-            BTdonhang.BackColor = Color.FromArgb(31, 53, 66);
-
         }
     }
 }

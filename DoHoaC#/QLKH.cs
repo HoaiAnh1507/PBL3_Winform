@@ -122,40 +122,35 @@ namespace DoHoaC_
                 throw new Exception(ex.Message);
             }
         }
-        public List<DTB_KH> SearchKH(string keyword)
+        public DataSet SearchKH(string keyword)
         {
-            List<DTB_KH> khList = new List<DTB_KH>();
-            try
+            DataSet dataSet = new DataSet();
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
-                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                try
                 {
                     string query = "SELECT * FROM KHACHHANG WHERE TEN_KHACH_HANG LIKE @keyword OR DIACHI LIKE @keyword OR SDT LIKE @keyword OR INFOR LIKE @keyword";
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
 
                     connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        DTB_KH kh = new DTB_KH
-                        {
-                            ID_KH = reader["ID_KH"].ToString(),
-                            TEN_KHACH_HANG = reader["TEN_KHACH_HANG"].ToString(),
-                            DIACHI = reader["DIACHI"].ToString(),
-                            SDT = reader["SDT"].ToString(),
-                            INFOR = reader["INFOR"].ToString()
-                        };
-                        khList.Add(kh);
-                    }
+                    // Tạo SqlDataAdapter và điền dữ liệu vào DataSet
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dataSet, "KhachHang");
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                        connection.Close();
                 }
             }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            return khList;
+            return dataSet;
         }
+
         private bool IsKHExists(string tenKH)
         {
             string query = "SELECT COUNT(*) FROM KHACHHANG WHERE TEN_KHACH_HANG = @TEN_KHACH_HANG";

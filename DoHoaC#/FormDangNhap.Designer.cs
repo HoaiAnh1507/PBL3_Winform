@@ -77,7 +77,7 @@
             // 
             // DangNhapBT
             // 
-            this.DangNhapBT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(179)))), ((int)(((byte)(174)))));
+            this.DangNhapBT.BackColor = System.Drawing.Color.PowderBlue;
             this.DangNhapBT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DangNhapBT.Location = new System.Drawing.Point(136, 201);
             this.DangNhapBT.Name = "DangNhapBT";
@@ -114,8 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(241)))), ((int)(((byte)(218)))));
-            this.BackgroundImage = global::DoHoaC_.Properties.Resources.hong;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(598, 313);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ThoatBT);

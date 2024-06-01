@@ -35,7 +35,6 @@
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Search_Danhmuc = new System.Windows.Forms.ComboBox();
-            this.ChiTietBT = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -62,9 +61,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.buttonSua);
-            this.panel3.Controls.Add(this.buttonThem);
-            this.panel3.Controls.Add(this.buttonXoa);
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.panel3.Controls.Add(this.dataGridView);
             this.panel3.Location = new System.Drawing.Point(24, 263);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -76,7 +73,7 @@
             // 
             this.buttonSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(179)))), ((int)(((byte)(174)))));
             this.buttonSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.buttonSua.Location = new System.Drawing.Point(197, 354);
+            this.buttonSua.Location = new System.Drawing.Point(229, 22);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.Size = new System.Drawing.Size(152, 49);
@@ -89,7 +86,7 @@
             // 
             this.buttonThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(179)))), ((int)(((byte)(174)))));
             this.buttonThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.buttonThem.Location = new System.Drawing.Point(3, 352);
+            this.buttonThem.Location = new System.Drawing.Point(26, 22);
             this.buttonThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonThem.Name = "buttonThem";
             this.buttonThem.Size = new System.Drawing.Size(152, 49);
@@ -102,7 +99,7 @@
             // 
             this.buttonXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(179)))), ((int)(((byte)(174)))));
             this.buttonXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.buttonXoa.Location = new System.Drawing.Point(1331, 352);
+            this.buttonXoa.Location = new System.Drawing.Point(435, 22);
             this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.Size = new System.Drawing.Size(152, 49);
@@ -122,14 +119,17 @@
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(1468, 313);
+            this.dataGridView.Size = new System.Drawing.Size(1468, 370);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.panel2.Controls.Add(this.buttonXoa);
+            this.panel2.Controls.Add(this.buttonSua);
             this.panel2.Controls.Add(this.Search_Danhmuc);
-            this.panel2.Controls.Add(this.ChiTietBT);
+            this.panel2.Controls.Add(this.buttonThem);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(24, 138);
@@ -142,34 +142,21 @@
             // 
             this.Search_Danhmuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.Search_Danhmuc.FormattingEnabled = true;
-            this.Search_Danhmuc.Location = new System.Drawing.Point(896, 37);
+            this.Search_Danhmuc.Location = new System.Drawing.Point(1271, 37);
             this.Search_Danhmuc.Name = "Search_Danhmuc";
-            this.Search_Danhmuc.Size = new System.Drawing.Size(296, 34);
+            this.Search_Danhmuc.Size = new System.Drawing.Size(212, 34);
             this.Search_Danhmuc.TabIndex = 2;
             this.Search_Danhmuc.SelectedIndexChanged += new System.EventHandler(this.Search_Danhmuc_SelectedIndexChanged);
-            // 
-            // ChiTietBT
-            // 
-            this.ChiTietBT.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ChiTietBT.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChiTietBT.Location = new System.Drawing.Point(1271, 18);
-            this.ChiTietBT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ChiTietBT.Name = "ChiTietBT";
-            this.ChiTietBT.Size = new System.Drawing.Size(191, 70);
-            this.ChiTietBT.TabIndex = 1;
-            this.ChiTietBT.Text = "Chế độ hiển thị : Chi tiết";
-            this.ChiTietBT.UseVisualStyleBackColor = false;
-            this.ChiTietBT.Click += new System.EventHandler(this.ChiTietBT_Click);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(179)))), ((int)(((byte)(174)))));
             this.panel4.Controls.Add(this.textBoxSearch);
             this.panel4.Controls.Add(this.label8);
-            this.panel4.Location = new System.Drawing.Point(15, 18);
+            this.panel4.Location = new System.Drawing.Point(659, 22);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(713, 49);
+            this.panel4.Size = new System.Drawing.Size(564, 49);
             this.panel4.TabIndex = 0;
             // 
             // textBoxSearch
@@ -178,7 +165,7 @@
             this.textBoxSearch.Location = new System.Drawing.Point(116, 8);
             this.textBoxSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(583, 32);
+            this.textBoxSearch.Size = new System.Drawing.Size(414, 32);
             this.textBoxSearch.TabIndex = 1;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
@@ -196,7 +183,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(891, 9);
+            this.label2.Location = new System.Drawing.Point(1266, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 26);
             this.label2.TabIndex = 0;
@@ -204,7 +191,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(223)))), ((int)(((byte)(226)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.textBoxSL);
             this.panel1.Controls.Add(this.textBoxDonGia);
             this.panel1.Controls.Add(this.textBoxTen);
@@ -343,7 +330,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -370,7 +357,6 @@
         private System.Windows.Forms.Button buttonThem;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button ChiTietBT;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Label label8;

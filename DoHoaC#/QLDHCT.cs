@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DoHoaC_
 {
@@ -42,56 +43,70 @@ namespace DoHoaC_
         }
         public void AddSP_DHCT(DTB_DH dh)
         {
-            try
+            if (KiemTraSoLuongSPTrongKho(dh.ID_DH, dh.ID_SP, dh.SOLUONG))
             {
-                if (dh == null)
-                    throw new ArgumentNullException(nameof(dh), "Thông tin sản phẩm không được để trống.");
-                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                try
                 {
-                    string query1 = "INSERT INTO DONHANGCHITIET (ID_DH, ID_SP, TEN_SAN_PHAM, DON_VI, DON_GIA, SO_LUONG, THANH_TIEN, TONG_THANH_TOAN) VALUES (@ID_DH, @ID_SP, @TEN_SAN_PHAM, @DON_VI, @DON_GIA, @SO_LUONG, @THANH_TIEN, @TONG_THANH_TOAN)";
-                  
-                    SqlCommand command = new SqlCommand(query1, connection);
-                    command.Parameters.AddWithValue("@ID_DH", dh.ID_DH);
-                    command.Parameters.AddWithValue("@ID_SP", dh.ID_SP ?? "");
-                    command.Parameters.AddWithValue("@TEN_SAN_PHAM", dh.TEN_SAN_PHAM ?? "");
-                    command.Parameters.AddWithValue("@DON_VI", dh.DONVI ?? "");
-                    command.Parameters.AddWithValue("@DON_GIA", dh.DONGIA.ToString() ?? "");
-                    command.Parameters.AddWithValue("@SO_LUONG", dh.SOLUONG.ToString() ?? "");
-                    command.Parameters.AddWithValue("@THANH_TIEN", dh.THANHTIEN.ToString() ?? "");
-                    command.Parameters.AddWithValue("@TONG_THANH_TOAN", dh.TONGTHANHTOAN.ToString() ?? "");
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                    connection.Close();
+                    if (dh == null)
+                        throw new ArgumentNullException(nameof(dh), "Thông tin sản phẩm không được để trống.");
+                    using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                    {
+                        string query1 = "INSERT INTO DONHANGCHITIET (ID_DH, ID_SP, TEN_SAN_PHAM, DON_VI, DON_GIA, SO_LUONG, THANH_TIEN, TONG_THANH_TOAN) VALUES (@ID_DH, @ID_SP, @TEN_SAN_PHAM, @DON_VI, @DON_GIA, @SO_LUONG, @THANH_TIEN, @TONG_THANH_TOAN)";
+
+                        SqlCommand command = new SqlCommand(query1, connection);
+                        command.Parameters.AddWithValue("@ID_DH", dh.ID_DH);
+                        command.Parameters.AddWithValue("@ID_SP", dh.ID_SP ?? "");
+                        command.Parameters.AddWithValue("@TEN_SAN_PHAM", dh.TEN_SAN_PHAM ?? "");
+                        command.Parameters.AddWithValue("@DON_VI", dh.DONVI ?? "");
+                        command.Parameters.AddWithValue("@DON_GIA", dh.DONGIA.ToString() ?? "");
+                        command.Parameters.AddWithValue("@SO_LUONG", dh.SOLUONG.ToString() ?? "");
+                        command.Parameters.AddWithValue("@THANH_TIEN", dh.THANHTIEN.ToString() ?? "");
+                        command.Parameters.AddWithValue("@TONG_THANH_TOAN", dh.TONGTHANHTOAN.ToString() ?? "");
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                throw new Exception(ex.Message);
+                MessageBox.Show("error", "Vượt quá số lượng trong kho");
             }
         }
-        
         public void UpdateSoLuong(string ID_DH, string ID_SP, int soLuong)
         {
-            try
+            if (KiemTraSoLuongSPTrongKho(ID_DH, ID_SP, soLuong))
             {
-                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                try
                 {
-                    string query = "UPDATE DONHANGCHITIET SET SO_LUONG = SO_LUONG + @SO_LUONG, THANH_TIEN = DON_GIA * (SO_LUONG + @SO_LUONG) WHERE ID_SP = @ID_SP and ID_DH = @ID_DH";
-                    SqlCommand command = new SqlCommand(query, connection);
+                    using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                    {
+                        string query = "UPDATE DONHANGCHITIET SET SO_LUONG = SO_LUONG + @SO_LUONG, THANH_TIEN = DON_GIA * (SO_LUONG + @SO_LUONG) WHERE ID_SP = @ID_SP and ID_DH = @ID_DH";
+                        SqlCommand command = new SqlCommand(query, connection);
 
-                    command.Parameters.AddWithValue("@ID_SP", ID_SP);
-                    command.Parameters.AddWithValue("@ID_DH", ID_DH);
-                    command.Parameters.AddWithValue("@SO_LUONG", soLuong);
+                        command.Parameters.AddWithValue("@ID_SP", ID_SP);
+                        command.Parameters.AddWithValue("@ID_DH", ID_DH);
+                        command.Parameters.AddWithValue("@SO_LUONG", soLuong);
 
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                    connection.Close();
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                throw new Exception(ex.Message);
+                MessageBox.Show("error","Vượt quá số lượng trong kho");
             }
+            
         }
         public void XoaSP_DHCT(string ID_SP)
         {
@@ -317,8 +332,6 @@ namespace DoHoaC_
             }
             return tongThanhToan;
         }
-
-
         public bool KiemTraSPTonTai(string ID_DH, string ID_SP)
         {
             string query = "SELECT COUNT(*) FROM DONHANGCHITIET WHERE ID_SP = @ID_SP and ID_DH = @ID_DH";
@@ -334,14 +347,71 @@ namespace DoHoaC_
                 }
             }
         }
+        public bool KiemTraSoLuongSPTrongKho(string ID_DH, string ID_SP, int sl)
+        {
+            int soluongtrongkho = 0, soluongdhct = 0;
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            {
+                connection.Open();
+                string query1 = "SELECT SO_LUONG_CON_LAI FROM SANPHAM WHERE ID_SP = @ID_SP";
+                using (SqlCommand command = new SqlCommand(query1, connection))
+                {
+                    command.Parameters.AddWithValue("@ID_SP", ID_SP);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            soluongtrongkho = Convert.ToInt32(reader["SO_LUONG_CON_LAI"]);
+                        }
+                    }
+                }
+            }
+            if(KiemTraSPTonTai(ID_DH, ID_SP))
+            {
+                string query = "SELECT SO_LUONG FROM DONHANGCHITIET WHERE ID_SP = @ID_SP and ID_DH = @ID_DH";
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ID_SP", ID_SP);
+                        command.Parameters.AddWithValue("@ID_DH", ID_DH);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                soluongdhct = Convert.ToInt32(reader["SO_LUONG"]);
+                            }
+                        }
+                    }
+                }
+                if (sl + soluongdhct > soluongtrongkho)
+                {
+                    return false;
+                }
+                return true;
+            }
+            else
+            {
+                if (sl > soluongtrongkho)
+                {
+                    return false;
+                }
+                return true;
+            }
+            
+            
+        }
         public bool KiemTraDHTonTai(string ID_DH)
         {
             string query = "SELECT COUNT(*) FROM DONHANG where ID_DH = @ID_DH";
+
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@ID_DH", ID_DH);
+
                     connection.Open();
                     int count = (int)command.ExecuteScalar();
                     return count > 0;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -78,7 +79,7 @@ namespace DoHoaC_
                     throw new ArgumentNullException(nameof(sp), "Thông tin Sản Phẩm không được để trống.");
 
                 if (string.IsNullOrWhiteSpace(sp.TEN_SAN_PHAM))
-                    throw new ArgumentException("ID Sản Phẩm không được để trống.", nameof(ID_SP));
+                    throw new ArgumentException("Tên Sản Phẩm không được để trống.");
                 using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
                 {
                     string query = "UPDATE SANPHAM SET TEN_SAN_PHAM = @TEN_SAN_PHAM, ID_NCC = @ID_NCC, TEN_DANH_MUC = @TEN_DANH_MUC, DON_VI = @DON_VI, DON_GIA = @DON_GIA, SO_LUONG_CON_LAI = @SO_LUONG_CON_LAI WHERE ID_SP = @ID_SP";
@@ -127,9 +128,9 @@ namespace DoHoaC_
                 throw new Exception("Đã xảy ra lỗi khi xóa Sản Phẩm.", ex);
             }
         }
-        public List<DTB_SP> SearchSP(string keyword)
+        public DataSet SearchSP(string keyword)
         {
-            List<DTB_SP> spList = new List<DTB_SP>();
+            DataSet dataSet = new DataSet();
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
                 try
@@ -139,33 +140,19 @@ namespace DoHoaC_
                     command.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
 
                     connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        DTB_SP sp = new DTB_SP
-                        {
-                            ID_SP = reader["ID_SP"].ToString(),
-                            TEN_SAN_PHAM = reader["TEN_SAN_PHAM"].ToString(),
-                            ID_NCC = reader["ID_NCC"].ToString(),
-                            TEN_DANH_MUC = reader["TEN_DANH_MUC"].ToString(),
-                            DON_VI = reader["DON_VI"].ToString(),
-                            DON_GIA = reader["DON_GIA"].ToString(),
-                            SO_LUONG_CON_LAI = reader["SO_LUONG_CON_LAI"].ToString()
-                        };
-                        spList.Add(sp);
-                    }
+                    // Tạo SqlDataAdapter và điền dữ liệu vào DataSet
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dataSet, "SanPham");
                 }
-            
                 finally
                 {
                     if (connection.State == ConnectionState.Open)
                         connection.Close();
                 }
             }
-            return spList;
+            return dataSet;
         }
-        //Hàm kiểm tra sản phẩm đã tồn tại hay chưa
         private bool IsSPExists(string tenSP)
         {
             string query = "SELECT COUNT(*) FROM SANPHAM WHERE TEN_SAN_PHAM = @TEN_SAN_PHAM";
@@ -223,6 +210,30 @@ namespace DoHoaC_
                 }
             }
             return idList;
+        }
+        public void UpdateSLSP(string ID_SP, int slsp_ban)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                {
+                    string query = "UPDATE SANPHAM SET SO_LUONG_CON_LAI = SO_LUONG_CON_LAI - @SO_LUONG WHERE ID_SP = @ID_SP";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@ID_SP", ID_SP);
+                    command.Parameters.AddWithValue("@SO_LUONG", slsp_ban);
+
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected == 0)
+                        throw new InvalidOperationException("Không tìm thấy Sản Phẩm để cập nhật.");
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Đã xảy ra lỗi khi sửa Sản Phẩm.", ex);
+            }
+
         }
     }
 }

@@ -12,7 +12,8 @@ namespace DoHoaC_
 {
     public partial class FormDangNhap : Form
     {
-        List<TaiKhoan> ListTaiKhoan = DanhSachTaiKhoan.Instance.ListTaiKhoan;
+        List<DTB_TaiKhoan> ListTaiKhoan = DanhSachTaiKhoan.Instance.ListTaiKhoan;
+        public string CurrentUsername { get; private set; }
         public FormDangNhap()
         {
             InitializeComponent();
@@ -23,9 +24,10 @@ namespace DoHoaC_
         }
         private void DangNhapBT_Click(object sender, EventArgs e)
         {
+            //DanhSachTaiKhoan.Instance.LoadData();
             if (KiemTraDangNhap(textBoxTenDN.Text, textBoxMatkhau.Text))
             {
-
+                CurrentUsername = textBoxTenDN.Text;
                 this.Hide();
                 FormHeThong f = new FormHeThong();
                 f.Show();

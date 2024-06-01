@@ -66,7 +66,6 @@ D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.csproj.Asse
 D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.SanPham.resources
 D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.DanhMucHinhAnh.resources
 D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.DonHang.resources
-D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormDonHangMoi.resources
 D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormHeThong.resources
 D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormDangNhap.resources
 D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.HeThong.resources
@@ -109,3 +108,5 @@ C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\
 C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC#.pdb
 C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\bin\Debug\DoHoaC#.pdb
 C:\Users\ASUS\Documents\Zalo Received Files\GiaoDien_PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormDonHangChiTiet.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormDonHangChiTiet.resources
+D:\Ky 2 nam 2 2023-2024\PBL3\GiaoDien_PBL3\DoHoaC#\obj\Debug\DoHoaC_.FormDoiMK.resources

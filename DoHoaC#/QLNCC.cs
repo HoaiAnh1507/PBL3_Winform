@@ -123,41 +123,36 @@ namespace DoHoaC_
                 throw new Exception(ex.Message);
             }
         }
-        public List<DTB_NCC> SearchNCC(string keyword)
+        public DataSet SearchNCC(string keyword)
         {
-            List<DTB_NCC> nccList = new List<DTB_NCC>();
-
-            try
+            DataSet dataSet = new DataSet();
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
-                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                try
                 {
                     string query = "SELECT * FROM NHACUNGCAP WHERE TEN_NHA_CUNG_CAP LIKE @keyword OR DIACHI LIKE @keyword OR SDT LIKE @keyword OR INFOR LIKE @keyword";
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
 
                     connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        DTB_NCC ncc = new DTB_NCC
-                        {
-                            ID_NCC = reader["ID_NCC"].ToString(),
-                            TEN_NHA_CUNG_CAP = reader["TEN_NHA_CUNG_CAP"].ToString(),
-                            DIACHI = reader["DIACHI"].ToString(),
-                            SDT = reader["SDT"].ToString(),
-                            INFOR = reader["INFOR"].ToString()
-                        };
-                        nccList.Add(ncc);
-                    }
+                    // Tạo SqlDataAdapter và điền dữ liệu vào DataSet
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dataSet, "NhaCungCap");
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                        connection.Close();
                 }
             }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            return nccList;
+            return dataSet;
         }
+
         private bool IsNCCExists(string tenNCC)
         {
             string query = "SELECT COUNT(*) FROM NHACUNGCAP WHERE TEN_NHA_CUNG_CAP = @TEN_NHA_CUNG_CAP";

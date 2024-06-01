@@ -35,12 +35,12 @@
             this.buttonXoa = new System.Windows.Forms.Button();
             this.buttonThem = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBoxFind = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.RBTChuaTT = new System.Windows.Forms.RadioButton();
+            this.RBTDaTT = new System.Windows.Forms.RadioButton();
             this.textBoxTenNV = new System.Windows.Forms.TextBox();
             this.textBoxTenKH = new System.Windows.Forms.TextBox();
             this.textBoxTongTien = new System.Windows.Forms.TextBox();
@@ -58,6 +58,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Location = new System.Drawing.Point(26, 259);
             this.panel3.Name = "panel3";
@@ -76,10 +77,11 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1466, 382);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(241)))), ((int)(((byte)(218)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.panel2.Controls.Add(this.buttonSua);
             this.panel2.Controls.Add(this.buttonXoa);
             this.panel2.Controls.Add(this.buttonThem);
@@ -128,26 +130,27 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(179)))), ((int)(((byte)(174)))));
-            this.panel4.Controls.Add(this.textBox7);
+            this.panel4.Controls.Add(this.textBoxFind);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Location = new System.Drawing.Point(772, 24);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(707, 51);
             this.panel4.TabIndex = 0;
             // 
-            // textBox7
+            // textBoxFind
             // 
-            this.textBox7.Location = new System.Drawing.Point(133, 7);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(544, 28);
-            this.textBox7.TabIndex = 1;
+            this.textBoxFind.Location = new System.Drawing.Point(128, 7);
+            this.textBoxFind.Multiline = true;
+            this.textBoxFind.Name = "textBoxFind";
+            this.textBoxFind.Size = new System.Drawing.Size(562, 32);
+            this.textBoxFind.TabIndex = 1;
+            this.textBoxFind.TextChanged += new System.EventHandler(this.textBoxFind_TextChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(9, 10);
+            this.label8.Location = new System.Drawing.Point(15, 14);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(91, 25);
             this.label8.TabIndex = 0;
@@ -155,10 +158,10 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(223)))), ((int)(((byte)(226)))));
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.panel5.Controls.Add(this.dateTimePicker1);
-            this.panel5.Controls.Add(this.radioButton2);
-            this.panel5.Controls.Add(this.radioButton1);
+            this.panel5.Controls.Add(this.RBTChuaTT);
+            this.panel5.Controls.Add(this.RBTDaTT);
             this.panel5.Controls.Add(this.textBoxTenNV);
             this.panel5.Controls.Add(this.textBoxTenKH);
             this.panel5.Controls.Add(this.textBoxTongTien);
@@ -174,56 +177,62 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(603, 49);
+            this.dateTimePicker1.Location = new System.Drawing.Point(527, 49);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(259, 30);
+            this.dateTimePicker1.Size = new System.Drawing.Size(336, 30);
             this.dateTimePicker1.TabIndex = 28;
             // 
-            // radioButton2
+            // RBTChuaTT
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(1301, 50);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(178, 29);
-            this.radioButton2.TabIndex = 27;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Chưa thanh toán";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.RBTChuaTT.AutoSize = true;
+            this.RBTChuaTT.Enabled = false;
+            this.RBTChuaTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RBTChuaTT.Location = new System.Drawing.Point(1301, 50);
+            this.RBTChuaTT.Name = "RBTChuaTT";
+            this.RBTChuaTT.Size = new System.Drawing.Size(178, 29);
+            this.RBTChuaTT.TabIndex = 27;
+            this.RBTChuaTT.TabStop = true;
+            this.RBTChuaTT.Text = "Chưa thanh toán";
+            this.RBTChuaTT.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // RBTDaTT
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(1125, 49);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(155, 29);
-            this.radioButton1.TabIndex = 27;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Đã thanh toán";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.RBTDaTT.AutoSize = true;
+            this.RBTDaTT.Enabled = false;
+            this.RBTDaTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RBTDaTT.Location = new System.Drawing.Point(1125, 49);
+            this.RBTDaTT.Name = "RBTDaTT";
+            this.RBTDaTT.Size = new System.Drawing.Size(155, 29);
+            this.RBTDaTT.TabIndex = 27;
+            this.RBTDaTT.TabStop = true;
+            this.RBTDaTT.Text = "Đã thanh toán";
+            this.RBTDaTT.UseVisualStyleBackColor = true;
             // 
             // textBoxTenNV
             // 
+            this.textBoxTenNV.Enabled = false;
             this.textBoxTenNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTenNV.Location = new System.Drawing.Point(288, 50);
+            this.textBoxTenNV.Location = new System.Drawing.Point(271, 49);
             this.textBoxTenNV.Multiline = true;
             this.textBoxTenNV.Name = "textBoxTenNV";
-            this.textBoxTenNV.Size = new System.Drawing.Size(280, 30);
+            this.textBoxTenNV.Size = new System.Drawing.Size(239, 30);
             this.textBoxTenNV.TabIndex = 23;
             // 
             // textBoxTenKH
             // 
+            this.textBoxTenKH.Enabled = false;
             this.textBoxTenKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTenKH.Location = new System.Drawing.Point(35, 49);
             this.textBoxTenKH.Multiline = true;
             this.textBoxTenKH.Name = "textBoxTenKH";
-            this.textBoxTenKH.Size = new System.Drawing.Size(219, 30);
+            this.textBoxTenKH.Size = new System.Drawing.Size(212, 30);
             this.textBoxTenKH.TabIndex = 23;
             // 
             // textBoxTongTien
             // 
+            this.textBoxTongTien.Enabled = false;
             this.textBoxTongTien.Location = new System.Drawing.Point(881, 49);
             this.textBoxTongTien.Multiline = true;
             this.textBoxTongTien.Name = "textBoxTongTien";
@@ -254,7 +263,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(598, 21);
+            this.label7.Location = new System.Drawing.Point(522, 17);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(93, 25);
             this.label7.TabIndex = 2;
@@ -284,6 +293,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -306,12 +316,12 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBoxFind;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton RBTChuaTT;
+        private System.Windows.Forms.RadioButton RBTDaTT;
         private System.Windows.Forms.TextBox textBoxTenKH;
         private System.Windows.Forms.TextBox textBoxTongTien;
         private System.Windows.Forms.Label label1;

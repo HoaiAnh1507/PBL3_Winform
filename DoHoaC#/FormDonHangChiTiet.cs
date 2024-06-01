@@ -17,9 +17,24 @@ namespace DoHoaC_
         public delegate void TaoDonHangEventHandler(object sender, EventArgs e);
 
         public event TaoDonHangEventHandler TaoDonHangCreated;
-        public FormDonHangChiTiet(int iddh)
+        public FormDonHangChiTiet(int iddh, bool trangthai)
         {
             InitializeComponent();
+            if (trangthai)
+            {
+                textBoxIDDH.Enabled = false;
+                comboBoxIDKH.Enabled = false;
+                comboBoxIDNV.Enabled = false;
+                comboBoxTenKH.Enabled = false;
+                comboBoxTenNV.Enabled = false;
+                comboBoxDM.Enabled = false;
+                comboBoxIDSP.Enabled = false;
+                comboBoxTenSP.Enabled = false;
+                buttonThemSP.Enabled = false;
+                dataGridView1.Enabled = false;
+                TaoBT.Enabled = false;
+                NhapBT.Enabled = false;
+            }
             currentIddh = iddh;
             ShowDHCT(currentIddh);
         }
@@ -34,25 +49,11 @@ namespace DoHoaC_
                 comboBoxTenNV.DataSource = QLDHCT.Instance.ShowComBoBoxTenNV();
                 comboBoxDM.DataSource = QLSP.Instance.ShowComboBoxDanhMuc();
                 // Lấy dữ liệu từ bảng DONHANG để hiển thị trong các ComboBox
-                comboBoxIDKH.Text = QLDH.Instance.GetKHNV(iddh).ID_KH.ToString();
-                comboBoxIDNV.Text = QLDH.Instance.GetKHNV(iddh).ID_NV.ToString();
+                //comboBoxIDKH.Text = QLDH.Instance.GetKHNV(iddh).ID_KH.ToString();
+                //comboBoxIDNV.Text = QLDH.Instance.GetKHNV(iddh).ID_NV.ToString();
+                comboBoxTenKH.Text = QLDH.Instance.GetKHNV(iddh, "kh");
+                comboBoxTenNV.SelectedItem = QLDH.Instance.GetKHNV(iddh, "nv");
                 textBoxThanhToan.Text = QLDHCT.Instance.TongThanhToan(iddh.ToString()).ToString();
-
-
-
-                //DataSet donHangData = QLDH.Instance.GetDH();
-                //if (donHangData.Tables["DONHANG"].Rows.Count > 0)
-                //{
-                //    // Hiển thị dữ liệu từ bảng DONHANG trong các ComboBox
-                //    comboBoxTenKH.DataSource = donHangData.Tables["DONHANG"];
-                //    comboBoxTenKH.DisplayMember = "TEN_KHACH_HANG";
-                //    comboBoxTenKH.ValueMember = "ID_KH";
-
-                //    comboBoxTenNV.DataSource = donHangData.Tables["DONHANG"];
-                //    comboBoxTenNV.DisplayMember = "TEN_NHAN_VIEN";
-                //    comboBoxTenNV.ValueMember = "ID_NV";
-                //}
-
             }
             else
             {
@@ -63,17 +64,45 @@ namespace DoHoaC_
                 textBoxThanhToan.Text = QLDHCT.Instance.TongThanhToan(iddh.ToString()).ToString();
             }
         }
-
         private void HuyBT_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void NhapBT_Click(object sender, EventArgs e)
         {
-            this.Hide();
-        }
 
+            DTB_DH dh = new DTB_DH
+            {
+                ID_DH = textBoxIDDH.Text,
+                ID_NV = comboBoxIDNV.Text,
+                TEN_NHAN_VIEN = comboBoxTenNV.Text,
+                ID_KH = comboBoxIDKH.Text,
+                TEN_KHACH_HANG = comboBoxTenKH.Text,
+                NGAY_MUA = DateTime.Now,
+                TONGTHANHTOAN = QLDHCT.Instance.TongThanhToan(textBoxIDDH.Text),
+                TRANG_THAI = false,
+            };
+            try
+            {
+                if (QLDHCT.Instance.KiemTraDHTonTai(textBoxIDDH.Text))
+                {
+                    QLDH.Instance.UpdateDHCT(dh);
+                }
+                else
+                {
+                    QLDH.Instance.AddDHCT(dh);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi thêm & cập nhật đơn hàng: {ex.Message}");
+            }
+            if (TaoDonHangCreated != null)
+            {
+                TaoDonHangCreated(this, EventArgs.Empty);
+            }
+            this.Close();
+        }
         private void TaoBT_Click(object sender, EventArgs e)
         {
             DTB_DH dh = new DTB_DH
@@ -83,25 +112,50 @@ namespace DoHoaC_
                 TEN_NHAN_VIEN = comboBoxTenNV.Text,
                 ID_KH = comboBoxIDKH.Text,
                 TEN_KHACH_HANG = comboBoxTenKH.Text,
+                NGAY_MUA = DateTime.Now,
                 TONGTHANHTOAN = QLDHCT.Instance.TongThanhToan(textBoxIDDH.Text),
+                TRANG_THAI = true,
             };
-            if (QLDHCT.Instance.KiemTraDHTonTai(textBoxIDDH.Text))
+            try
             {
-                QLDH.Instance.UpdateDHCT(dh);
+                if (QLDHCT.Instance.KiemTraDHTonTai(textBoxIDDH.Text))
+                {
+                    QLDH.Instance.UpdateDHCT(dh);
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row != null && !row.IsNewRow)
+                        {
+                            string ID_SP = row.Cells["ID_SP"].Value.ToString();
+                            int SO_LUONG = Convert.ToInt32(row.Cells["SO_LUONG"].Value);
+                            QLSP.Instance.UpdateSLSP(ID_SP, SO_LUONG);
+                        }
+                    }
+                }
+                else
+                {
+                    QLDH.Instance.AddDHCT(dh);
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row != null && !row.IsNewRow)
+                        {
+                            string ID_SP = row.Cells["ID_SP"].Value.ToString();
+                            int SO_LUONG = Convert.ToInt32(row.Cells["SO_LUONG"].Value);
+                            QLSP.Instance.UpdateSLSP(ID_SP, SO_LUONG);
+                        }
+                    }
+                }
+                if (TaoDonHangCreated != null)
+                {
+                    TaoDonHangCreated(this, EventArgs.Empty);
+                }
+                
             }
-            else
+            catch (Exception ex)
             {
-                QLDH.Instance.AddDHCT(dh);
+                MessageBox.Show($"Lỗi khi thêm & cập nhật đơn hàng: {ex.Message}");
             }
-            //DonHang.Instance.ShowDH();
-            OnTaoDonHangCreated(EventArgs.Empty);
+
             this.Close();
-            //DataGridView DonHang.Instance.dataGridView1.DataSource = QLDH.Instance.GetDH();
-        }
-        protected virtual void OnTaoDonHangCreated(EventArgs e)
-        {
-            // Kiểm tra xem có ai đăng ký sự kiện không
-            TaoDonHangCreated?.Invoke(this, e);
         }
         private void buttonThemSP_Click(object sender, EventArgs e)
         {
@@ -140,36 +194,31 @@ namespace DoHoaC_
                 MessageBox.Show($"Lỗi khi thêm Sản phẩm: {ex.Message}");
             }
         }
-
         private void comboBoxDM_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBoxTenSP.DataSource = QLDHCT.Instance.ShowComboBoxSanPham(comboBoxDM.Text);
         }
-
         private void comboBoxTenSP_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBoxIDSP.DataSource = QLDHCT.Instance.ShowComBoBoxIDSP(comboBoxTenSP.Text);
         }
-
         private void comboBoxTenNV_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBoxIDNV.DataSource = QLDHCT.Instance.ShowComboBoxIDNV(comboBoxTenNV.Text);
         }
-
         private void comboBoxTenKH_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBoxIDKH.DataSource = QLDHCT.Instance.ShowComboBoxIDKH(comboBoxTenKH.Text);
         }
-
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(MessageBox.Show("Bạn muốn xóa sản phẩm này?", "Cảnh báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn muốn xóa sản phẩm này?", "Cảnh báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 QLDHCT.Instance.XoaSP_DHCT(dataGridView1.Rows[e.RowIndex].Cells["ID_SP"].Value.ToString());
                 ShowDHCT(currentIddh);
             }
-            
         }
+    
     }
 }
         

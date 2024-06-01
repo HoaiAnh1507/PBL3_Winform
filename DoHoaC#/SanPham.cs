@@ -19,6 +19,14 @@ namespace DoHoaC_
             ShowAllSanPham();
             ShowComboBox();
         }
+        public void SubscribeToTaoDonHangEvent(FormDonHangChiTiet form)
+        {
+            form.TaoDonHangCreated += HandleTaoDonHangCreated;
+        }
+        private void HandleTaoDonHangCreated(object sender, EventArgs e)
+        {
+            ShowAllSanPham(); // Reload DataGridView khi có sự kiện tạo đơn hàng
+        }
         private void ShowAllSanPham()
         {
             dataGridView.DataSource = QLSP.Instance.GetAllSanPham().Tables["SANPHAM"]; // Hiển thị danh sách Sản Phẩm
@@ -107,19 +115,13 @@ namespace DoHoaC_
                 MessageBox.Show("Vui lòng chọn một Sản Phẩm để xóa.");
             }
         }
-
         public void binding()
         {
             textBoxTen.DataBindings.Clear();
-            //textBoxTen.DataBindings.Add("text", dataGridView.DataSource, "TEN_SAN_PHAM");
             cbbIdNCC.DataBindings.Clear();
-            //textBoxNCC.DataBindings.Add("text", dataGridView.DataSource, "ID_NCC");
             textBoxDonVi.DataBindings.Clear();
-            //textBoxDonVi.DataBindings.Add("text", dataGridView.DataSource, "DON_VI");
             textBoxDonGia.DataBindings.Clear();
-            //textBoxDonGia.DataBindings.Add("text", dataGridView.DataSource, "DON_GIA");
             textBoxSL.DataBindings.Clear();
-            //textBoxSL.DataBindings.Add("text", dataGridView.DataSource, "SO_LUONG_CON_LAI");
         }
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -133,18 +135,11 @@ namespace DoHoaC_
                 textBoxSL.Text = dataGridView.SelectedRows[0].Cells["SO_LUONG_CON_LAI"].Value.ToString();
             }
         }
-        
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
             string keyword = textBoxSearch.Text;
-            List<DTB_SP> searchResult = QLSP.Instance.SearchSP(keyword);
-            dataGridView.DataSource = searchResult;
+            dataGridView.DataSource = QLSP.Instance.SearchSP(keyword).Tables["SanPham"];
         }
-        private void ChiTietBT_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Search_Danhmuc_SelectedIndexChanged(object sender, EventArgs e)
         {
             string str = Search_Danhmuc.Text;
@@ -154,11 +149,9 @@ namespace DoHoaC_
             }
             else
             {
-                List<DTB_SP> searchResult = QLSP.Instance.SearchSP(str);
-                dataGridView.DataSource = searchResult;
+                dataGridView.DataSource = QLSP.Instance.SearchSP(str).Tables["SanPham"];
             }
         }
-
         public void ShowComboBox()
         {
             comboBoxDanhMuc.DataSource = QLSP.Instance.ShowComboBoxDanhMuc();
@@ -167,6 +160,5 @@ namespace DoHoaC_
             Search_Danhmuc.DataSource = danhMucList;
             cbbIdNCC.DataSource = QLSP.Instance.ShowComboBoxIDNCC();
         }
-
     }
 }

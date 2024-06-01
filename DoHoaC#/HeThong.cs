@@ -18,13 +18,22 @@ namespace DoHoaC_
         }
         private void BTdangxuat_Click(object sender, EventArgs e)
         {
-            Form parentForm = this.FindForm();
-            if (parentForm != null)
+            if (MessageBox.Show("Bạn muốn đăng xuất không?", "Cảnh báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                parentForm.Hide();
+                Form parentForm = this.FindForm();
+                if (parentForm != null)
+                {
+                    parentForm.Hide();
+                }
+                FormDangNhap f = new FormDangNhap();
+                f.Show();
             }
-            FormDangNhap f = new FormDangNhap();
-            f.Show();
+        }
+
+        private void BTdoimk_Click(object sender, EventArgs e)
+        {
+            FormDoiMK f = new FormDoiMK();
+            f.Show(this);
         }
     }
 }

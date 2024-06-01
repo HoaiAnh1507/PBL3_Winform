@@ -14,13 +14,13 @@ namespace DoHoaC_
         public string ID_KH { get; set; }
         public string TEN_KHACH_HANG { get; set; }
         public string ID_SP { get; set; }
-        public DateTime NGAYMUA { get; set; }
+        public DateTime NGAY_MUA { get; set; }
         public string TEN_SAN_PHAM { get; set; }
         public string DONVI { get; set; }
         public int DONGIA { get; set; }
         public int SOLUONG { get; set; }
         public int THANHTIEN { get; set; }
         public int TONGTHANHTOAN { get; set; }
-
+        public bool TRANG_THAI {  get; set; }
     }
 }

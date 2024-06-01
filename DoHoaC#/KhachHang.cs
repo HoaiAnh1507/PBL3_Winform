@@ -131,8 +131,7 @@ namespace DoHoaC_
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
             string keyword = textBoxSearch.Text;
-            List<DTB_KH> searchResult = QLKH.Instance.SearchKH(keyword);
-            dataGridView1.DataSource = searchResult;
+            dataGridView1.DataSource = QLKH.Instance.SearchKH(keyword).Tables["KhachHang"];
         }
     }
 }

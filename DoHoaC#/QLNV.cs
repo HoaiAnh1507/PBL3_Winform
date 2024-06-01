@@ -123,9 +123,9 @@ namespace DoHoaC_
             }
 
         }
-        public List<DTB_NV> SearchNV(string keyword)
+        public DataSet SearchNV(string keyword)
         {
-            List<DTB_NV> nvList = new List<DTB_NV>();
+            DataSet dataSet = new DataSet();
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
                 try
@@ -135,20 +135,10 @@ namespace DoHoaC_
                     command.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
 
                     connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        DTB_NV nv = new DTB_NV
-                        {
-                            ID_NV = reader["ID_NV"].ToString(),
-                            TEN_NHAN_VIEN = reader["TEN_NHAN_VIEN"].ToString(),
-                            DIACHI = reader["DIACHI"].ToString(),
-                            SDT = reader["SDT"].ToString(),
-                            CHUCVU = reader["CHUCVU"].ToString()
-                        };
-                        nvList.Add(nv);
-                    }
+                    // Tạo SqlDataAdapter và điền dữ liệu vào DataSet
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dataSet, "NhanVien");
                 }
                 finally
                 {
@@ -156,10 +146,11 @@ namespace DoHoaC_
                         connection.Close();
                 }
             }
-            return nvList;
+            return dataSet;
         }
-        
-        
+
+
+
         //Hàm kiểm tra nhân viên đã tồn tại hay chưa
         private bool IsNVExists(string tenNV)
         {

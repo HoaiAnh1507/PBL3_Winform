@@ -132,8 +132,7 @@ namespace DoHoaC_
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
             string keyword = textBoxSearch.Text;
-            List<DTB_NCC> searchResult = QLNCC.Instance.SearchNCC(keyword);
-            dataGridView1.DataSource = searchResult;
+            dataGridView1.DataSource = QLNCC.Instance.SearchNCC(keyword).Tables["NhaCungCap"];
         }
     }
 }

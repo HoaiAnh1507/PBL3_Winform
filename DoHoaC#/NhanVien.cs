@@ -125,8 +125,8 @@ namespace DoHoaC_
         private void textBoxTimkiem_TextChanged(object sender, EventArgs e)
         {
             string keyword = textBoxTimkiem.Text;
-            List<DTB_NV> searchResult = QLNV.Instance.SearchNV(keyword);
-            dataGridView1.DataSource = searchResult;
+            //List<DTB_NV> searchResult = QLNV.Instance.SearchNV(keyword);
+            dataGridView1.DataSource = QLNV.Instance.SearchNV(keyword).Tables["NHANVIEN"];
         }
         
     }

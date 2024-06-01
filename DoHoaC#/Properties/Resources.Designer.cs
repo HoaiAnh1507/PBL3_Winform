@@ -63,6 +63,16 @@ namespace DoHoaC_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _23085108_9b1b_4448_a3f4_3d19f55de095 {
+            get {
+                object obj = ResourceManager.GetObject("23085108-9b1b-4448-a3f4-3d19f55de095", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap banchan50 {
             get {
                 object obj = ResourceManager.GetObject("banchan50", resourceCulture);
@@ -136,6 +146,16 @@ namespace DoHoaC_.Properties {
         internal static System.Drawing.Bitmap nen {
             get {
                 object obj = ResourceManager.GetObject("nen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nen1 {
+            get {
+                object obj = ResourceManager.GetObject("nen1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
