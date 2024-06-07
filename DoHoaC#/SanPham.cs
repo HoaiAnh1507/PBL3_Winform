@@ -19,15 +19,11 @@ namespace DoHoaC_
             ShowAllSanPham();
             ShowComboBox();
         }
-        public void SubscribeToTaoDonHangEvent(FormDonHangChiTiet form)
+        public void HandleDonHangChiTietOpened(FormDonHangChiTiet f)
         {
-            form.TaoDonHangCreated += HandleTaoDonHangCreated;
+            f.TaoDonHangCreated += (s, ev) => ShowAllSanPham();
         }
-        private void HandleTaoDonHangCreated(object sender, EventArgs e)
-        {
-            ShowAllSanPham(); // Reload DataGridView khi có sự kiện tạo đơn hàng
-        }
-        private void ShowAllSanPham()
+        public void ShowAllSanPham()
         {
             dataGridView.DataSource = QLSP.Instance.GetAllSanPham().Tables["SANPHAM"]; // Hiển thị danh sách Sản Phẩm
             binding();

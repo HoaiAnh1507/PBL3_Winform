@@ -19,14 +19,7 @@ namespace DoHoaC_
             InitializeComponent();
             ShowDH();
         }
-        public void SubscribeToTaoDonHangEvent(FormDonHangChiTiet form)
-        {
-            form.TaoDonHangCreated += HandleTaoDonHangCreated;
-        }
-        private void HandleTaoDonHangCreated(object sender, EventArgs e)
-        {
-            ShowDH(); // Reload DataGridView khi có sự kiện tạo đơn hàng
-        }
+        public event EventHandler<FormDonHangChiTiet> DonHangChiTietOpened;
         public void ShowDH()
         {
             dataGridView1.DataSource = QLDH.Instance.GetDH().Tables["DONHANG"];
@@ -36,7 +29,8 @@ namespace DoHoaC_
             try
             {
                 FormDonHangChiTiet f = new FormDonHangChiTiet(-1, false);
-                SubscribeToTaoDonHangEvent(f);
+                DonHangChiTietOpened?.Invoke(this, f);
+                f.TaoDonHangCreated += (s, ev) => ShowDH();
                 f.Show();
             }
             catch (Exception ex)
@@ -54,16 +48,15 @@ namespace DoHoaC_
                 int iddh = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID_DH"].Value);
                 try
                 {
-                        
                     FormDonHangChiTiet f = new FormDonHangChiTiet(iddh, trangthai);
-                    SubscribeToTaoDonHangEvent(f);
+                    f.TaoDonHangCreated += (s, ev) => ShowDH();
+                    DonHangChiTietOpened?.Invoke(this, f);
                     f.Show();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Lỗi khi cập nhật Đơn hàng: {ex.Message}");
                 }
-
             }
             else
             {
@@ -74,17 +67,25 @@ namespace DoHoaC_
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
+                bool trangthai = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells["TRANG_THAI"].Value);
                 int iddh = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID_DH"].Value);
                 try
                 {
-                    // Hiển thị hộp thoại xác nhận trước khi xóa
-                    DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa đơn hàng này?", "Xác nhận xóa",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
+                    if (!Const.LoaiTaiKhoan && trangthai)
                     {
-                        QLDH.Instance.DeleteDHCT(iddh.ToString());
-                        // Sau khi xóa, làm mới DataGridView để cập nhật dữ liệu hiển thị
-                        dataGridView1.DataSource = QLDH.Instance.GetDH().Tables["DONHANG"];
+                        MessageBox.Show("Bạn không có quyền hạn xóa đơn hàng đã được thanh toán");
+                    }
+                    else
+                    {
+                        // Hiển thị hộp thoại xác nhận trước khi xóa
+                        DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa đơn hàng này?", "Xác nhận xóa",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            QLDH.Instance.DeleteDHCT(iddh.ToString());
+                            // Sau khi xóa, làm mới DataGridView để cập nhật dữ liệu hiển thị
+                            dataGridView1.DataSource = QLDH.Instance.GetDH().Tables["DONHANG"];
+                        }
                     }
                 }
                 catch (Exception ex)

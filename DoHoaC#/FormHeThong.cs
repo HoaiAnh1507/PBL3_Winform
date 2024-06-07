@@ -16,6 +16,11 @@ namespace DoHoaC_
         public FormHeThong()
         {
             InitializeComponent();
+            donHang1.DonHangChiTietOpened += DonHang_DonHangChiTietOpened;
+        }
+        private void DonHang_DonHangChiTietOpened(object sender, FormDonHangChiTiet e)
+        {
+            sanPham1.HandleDonHangChiTietOpened(e);
         }
         private void BThethong_Click(object sender, EventArgs e)
         {
@@ -114,5 +119,6 @@ namespace DoHoaC_
                 Application.Exit();
             }
         }
+        
     }
 }

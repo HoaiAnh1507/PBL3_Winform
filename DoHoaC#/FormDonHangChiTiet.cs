@@ -14,9 +14,7 @@ namespace DoHoaC_
     public partial class FormDonHangChiTiet : Form
     {
         private int currentIddh;
-        public delegate void TaoDonHangEventHandler(object sender, EventArgs e);
-
-        public event TaoDonHangEventHandler TaoDonHangCreated;
+        public event EventHandler TaoDonHangCreated;
         public FormDonHangChiTiet(int iddh, bool trangthai)
         {
             InitializeComponent();
@@ -97,10 +95,7 @@ namespace DoHoaC_
             {
                 MessageBox.Show($"Lỗi khi thêm & cập nhật đơn hàng: {ex.Message}");
             }
-            if (TaoDonHangCreated != null)
-            {
-                TaoDonHangCreated(this, EventArgs.Empty);
-            }
+            TaoDonHangCreated?.Invoke(this, EventArgs.Empty);
             this.Close();
         }
         private void TaoBT_Click(object sender, EventArgs e)
@@ -144,11 +139,8 @@ namespace DoHoaC_
                         }
                     }
                 }
-                if (TaoDonHangCreated != null)
-                {
-                    TaoDonHangCreated(this, EventArgs.Empty);
-                }
-                
+                TaoDonHangCreated?.Invoke(this, EventArgs.Empty);
+
             }
             catch (Exception ex)
             {
