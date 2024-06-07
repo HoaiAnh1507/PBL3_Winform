@@ -104,7 +104,7 @@ namespace DoHoaC_
             }
             else
             {
-                MessageBox.Show("error","Vượt quá số lượng trong kho");
+                MessageBox.Show("Vượt quá số lượng trong kho", "Error");
             }
             
         }

@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2F487E2A-94E7-4F6B-B55B-1105497BA3BF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DoHoaC_</RootNamespace>
+    <AssemblyName>DoHoaC#</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Logincontrol">
+      <HintPath>C:\Users\ASUS\source\repos\GiaoDienDemo\Test\Logincontrol\bin\Debug\Logincontrol.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Const.cs" />
+    <Compile Include="DONHANG.cs">
+      <DependentUpon>DTB_First.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DONHANGCHITIET.cs">
+      <DependentUpon>DTB_First.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTB_First.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DTB_First.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTB_First.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DTB_First.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTB_First.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DTB_First.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\DTB_DH.cs" />
+    <Compile Include="DTO\DTB_SP.cs" />
+    <Compile Include="GUI\FormDoiMK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormDoiMK.Designer.cs">
+      <DependentUpon>FormDoiMK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KHACHHANG.cs">
+      <DependentUpon>DTB_First.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NHACUNGCAP.cs">
+      <DependentUpon>DTB_First.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NHANVIEN.cs">
+      <DependentUpon>DTB_First.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QLDH.cs" />
+    <Compile Include="QLDHCT.cs" />
+    <Compile Include="QLTaiKhoan.cs" />
+    <Compile Include="QLThongKe.cs" />
+    <Compile Include="GUI\SanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\SanPham.Designer.cs">
+      <DependentUpon>SanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\DanhMucHinhAnh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\DanhMucHinhAnh.Designer.cs">
+      <DependentUpon>DanhMucHinhAnh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhSachTaiKhoan.cs" />
+    <Compile Include="GUI\DonHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\DonHang.Designer.cs">
+      <DependentUpon>DonHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\DTB_KH.cs" />
+    <Compile Include="DTO\DTB_NCC.cs" />
+    <Compile Include="DTO\DTB_NV.cs" />
+    <Compile Include="GUI\FormDonHangChiTiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormDonHangChiTiet.Designer.cs">
+      <DependentUpon>FormDonHangChiTiet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormHeThong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormHeThong.Designer.cs">
+      <DependentUpon>FormHeThong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormDangNhap.Designer.cs">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HeThong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HeThong.Designer.cs">
+      <DependentUpon>HeThong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\KhachHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\KhachHang.Designer.cs">
+      <DependentUpon>KhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\NCC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\NCC.Designer.cs">
+      <DependentUpon>NCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\NhanVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\NhanVien.Designer.cs">
+      <DependentUpon>NhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLKH.cs" />
+    <Compile Include="QLNCC.cs" />
+    <Compile Include="ConnectionString.cs" />
+    <Compile Include="QLNV.cs" />
+    <Compile Include="QLSP.cs" />
+    <Compile Include="DTO\DTB_TaiKhoan.cs" />
+    <Compile Include="GUI\ThongKe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ThongKe.Designer.cs">
+      <DependentUpon>ThongKe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SANPHAM.cs">
+      <DependentUpon>DTB_First.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>DTB_First.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GUI\FormDoiMK.resx">
+      <DependentUpon>FormDoiMK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SanPham.resx">
+      <DependentUpon>SanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\DanhMucHinhAnh.resx">
+      <DependentUpon>DanhMucHinhAnh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\DonHang.resx">
+      <DependentUpon>DonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormDonHangChiTiet.resx">
+      <DependentUpon>FormDonHangChiTiet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormHeThong.resx">
+      <DependentUpon>FormHeThong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormDangNhap.resx">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HeThong.resx">
+      <DependentUpon>HeThong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\KhachHang.resx">
+      <DependentUpon>KhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\NCC.resx">
+      <DependentUpon>NCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\NhanVien.resx">
+      <DependentUpon>NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="GUI\ThongKe.resx">
+      <DependentUpon>ThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="DTB_First.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DTB_First.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DTB_First.edmx.diagram">
+      <DependentUpon>DTB_First.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nenmoi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logomoi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-cute-colorful-cat-paw-imprint-background-image_503830.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banchan50.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banchantren.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-pink-cute-cat-paw-background-image_530116.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hong.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nen1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23085108-9b1b-4448-a3f4-3d19f55de095.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23085108-9b1b-4448-a3f4-3d19f55de0951.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oki.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BusinessLogicLayer\" />
+    <Folder Include="DataAccessLayer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DTB_First.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DTB_First.Context.cs</LastGenOutput>
+      <DependentUpon>DTB_First.edmx</DependentUpon>
+    </Content>
+    <Content Include="DTB_First.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DTB_First.edmx</DependentUpon>
+      <LastGenOutput>DTB_First.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

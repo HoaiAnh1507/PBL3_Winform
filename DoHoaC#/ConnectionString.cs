@@ -20,6 +20,7 @@ namespace DoHoaC_
             return cnn;
         }
 
+
         public static void OpenConnection()
         {
             cnn = new SqlConnection(connectionString);
