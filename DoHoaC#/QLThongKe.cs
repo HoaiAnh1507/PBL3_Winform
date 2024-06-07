@@ -27,11 +27,11 @@ namespace DoHoaC_
 
             if (a == "NhanVien")
             {
-                query = "SELECT ID_NV, SUM(TONG_THANH_TOAN) AS DoanhThu FROM DONHANG WHERE NGAY_MUA BETWEEN @startDate AND @endDate GROUP BY ID_NV;";
+                query = "SELECT ID_NV, TEN_NHAN_VIEN, SUM(TONG_THANH_TOAN) AS DoanhThu FROM DONHANG WHERE NGAY_MUA BETWEEN @startDate AND @endDate GROUP BY ID_NV;";
             }
             else if (a == "KhachHang")
             {
-                query = "SELECT ID_KH, SUM(TONG_THANH_TOAN) AS DoanhThu FROM DONHANG WHERE NGAY_MUA BETWEEN @startDate AND @endDate GROUP BY ID_KH;";
+                query = "SELECT ID_KH, TEN_KHACH_HANG, SUM(TONG_THANH_TOAN) AS DoanhThu FROM DONHANG WHERE NGAY_MUA BETWEEN @startDate AND @endDate GROUP BY ID_KH;";
             }
             else // Tổng doanh thu
             {
@@ -61,11 +61,11 @@ namespace DoHoaC_
 
             if (a == "NhanVien")
             {
-                query = "SELECT ID_NV, SUM(TONG_THANH_TOAN) AS DoanhThu FROM DONHANG WHERE MONTH(NGAY_MUA) = @month GROUP BY ID_NV;";
+                query = "SELECT ID_NV, TEN_NHAN_VIEN, SUM(TONG_THANH_TOAN) AS DoanhThu FROM DONHANG WHERE MONTH(NGAY_MUA) = @month GROUP BY ID_NV;";
             }
             else if (a == "KhachHang")
             {
-                query = "SELECT ID_KH, SUM(TONG_THANH_TOAN) AS DoanhThu FROM DONHANG WHERE MONTH(NGAY_MUA) = @month GROUP BY ID_KH;";
+                query = "SELECT ID_KH, TEN_KHACH_HANG, SUM(TONG_THANH_TOAN) AS DoanhThu FROM DONHANG WHERE MONTH(NGAY_MUA) = @month GROUP BY ID_KH;";
             }
             else // Tổng doanh thu
             {
@@ -94,11 +94,11 @@ namespace DoHoaC_
 
             if (a == "NhanVien")
             {
-                query = "SELECT ID_NV, SUM(TONG_THANH_TOAN) AS DoanhThu FROM DONHANG WHERE YEAR(NGAY_MUA) = @year GROUP BY ID_NV;";
+                query = "SELECT ID_NV, TEN_NHAN_VIEN, SUM(TONG_THANH_TOAN) AS DoanhThu FROM DONHANG WHERE YEAR(NGAY_MUA) = @year GROUP BY ID_NV;";
             }
             else if (a == "KhachHang")
             {
-                query = "SELECT ID_KH, SUM(TONG_THANH_TOAN) AS DoanhThu FROM DONHANG WHERE YEAR(NGAY_MUA) = @year GROUP BY ID_KH;";
+                query = "SELECT ID_KH, TEN_KHACH_HANG, SUM(TONG_THANH_TOAN) AS DoanhThu FROM DONHANG WHERE YEAR(NGAY_MUA) = @year GROUP BY ID_KH;";
             }
             else // Tổng doanh thu
             {

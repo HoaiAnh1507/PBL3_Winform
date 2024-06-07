@@ -239,5 +239,11 @@
   <ItemGroup>
     <None Include="Resources\23085108-9b1b-4448-a3f4-3d19f55de095.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23085108-9b1b-4448-a3f4-3d19f55de0951.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oki.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

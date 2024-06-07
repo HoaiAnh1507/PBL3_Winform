@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHeThong));
             this.panel2 = new System.Windows.Forms.Panel();
             this.thongKe1 = new DoHoaC_.ThongKe();
             this.nhanVien1 = new DoHoaC_.NhanVien();
@@ -60,10 +59,10 @@
             this.panel2.Controls.Add(this.sanPham1);
             this.panel2.Controls.Add(this.heThong1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 76);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(0, 100);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1540, 685);
+            this.panel2.Size = new System.Drawing.Size(1904, 941);
             this.panel2.TabIndex = 19;
             // 
             // thongKe1
@@ -74,29 +73,33 @@
             this.thongKe1.AutoSize = true;
             this.thongKe1.BackColor = System.Drawing.Color.AliceBlue;
             this.thongKe1.Location = new System.Drawing.Point(-1, 0);
-            this.thongKe1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.thongKe1.Margin = new System.Windows.Forms.Padding(2);
             this.thongKe1.Name = "thongKe1";
-            this.thongKe1.Size = new System.Drawing.Size(2043, 909);
+            this.thongKe1.Size = new System.Drawing.Size(1903, 970);
             this.thongKe1.TabIndex = 6;
             // 
             // nhanVien1
             // 
+            this.nhanVien1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.nhanVien1.BackColor = System.Drawing.Color.AliceBlue;
-            this.nhanVien1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nhanVien1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nhanVien1.Location = new System.Drawing.Point(0, 0);
-            this.nhanVien1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nhanVien1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nhanVien1.Name = "nhanVien1";
-            this.nhanVien1.Size = new System.Drawing.Size(1540, 685);
+            this.nhanVien1.Size = new System.Drawing.Size(1904, 979);
             this.nhanVien1.TabIndex = 5;
             // 
             // ncc1
             // 
             this.ncc1.BackColor = System.Drawing.Color.AliceBlue;
             this.ncc1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ncc1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ncc1.Location = new System.Drawing.Point(0, 0);
-            this.ncc1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ncc1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ncc1.Name = "ncc1";
-            this.ncc1.Size = new System.Drawing.Size(1540, 685);
+            this.ncc1.Size = new System.Drawing.Size(0, 941);
             this.ncc1.TabIndex = 4;
             // 
             // khachHang1
@@ -105,19 +108,21 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.khachHang1.BackColor = System.Drawing.Color.AliceBlue;
+            this.khachHang1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.khachHang1.Location = new System.Drawing.Point(0, 0);
-            this.khachHang1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.khachHang1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.khachHang1.Name = "khachHang1";
-            this.khachHang1.Size = new System.Drawing.Size(1549, 687);
+            this.khachHang1.Size = new System.Drawing.Size(1911, 942);
             this.khachHang1.TabIndex = 3;
             // 
             // donHang1
             // 
             this.donHang1.BackColor = System.Drawing.Color.AliceBlue;
+            this.donHang1.Dock = System.Windows.Forms.DockStyle.Right;
             this.donHang1.Location = new System.Drawing.Point(0, 0);
-            this.donHang1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.donHang1.Margin = new System.Windows.Forms.Padding(2);
             this.donHang1.Name = "donHang1";
-            this.donHang1.Size = new System.Drawing.Size(1549, 686);
+            this.donHang1.Size = new System.Drawing.Size(1904, 941);
             this.donHang1.TabIndex = 2;
             // 
             // sanPham1
@@ -127,9 +132,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.sanPham1.BackColor = System.Drawing.Color.AliceBlue;
             this.sanPham1.Location = new System.Drawing.Point(0, 0);
-            this.sanPham1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sanPham1.Margin = new System.Windows.Forms.Padding(2);
             this.sanPham1.Name = "sanPham1";
-            this.sanPham1.Size = new System.Drawing.Size(1540, 684);
+            this.sanPham1.Size = new System.Drawing.Size(1904, 940);
             this.sanPham1.TabIndex = 1;
             // 
             // heThong1
@@ -138,24 +143,26 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.heThong1.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.heThong1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("heThong1.BackgroundImage")));
             this.heThong1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.heThong1.Location = new System.Drawing.Point(0, 0);
-            this.heThong1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.heThong1.Margin = new System.Windows.Forms.Padding(2);
             this.heThong1.Name = "heThong1";
-            this.heThong1.Size = new System.Drawing.Size(1540, 684);
+            this.heThong1.Size = new System.Drawing.Size(1904, 941);
             this.heThong1.TabIndex = 0;
             // 
             // BTSanPham
             // 
+            this.BTSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BTSanPham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(63)))), ((int)(((byte)(92)))));
             this.BTSanPham.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BTSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTSanPham.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BTSanPham.Location = new System.Drawing.Point(221, 0);
-            this.BTSanPham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BTSanPham.Location = new System.Drawing.Point(272, 0);
+            this.BTSanPham.Margin = new System.Windows.Forms.Padding(2);
             this.BTSanPham.Name = "BTSanPham";
-            this.BTSanPham.Size = new System.Drawing.Size(221, 76);
+            this.BTSanPham.Size = new System.Drawing.Size(272, 100);
             this.BTSanPham.TabIndex = 12;
             this.BTSanPham.Text = "Sản phẩm";
             this.BTSanPham.UseVisualStyleBackColor = false;
@@ -163,14 +170,17 @@
             // 
             // BTdonhang
             // 
+            this.BTdonhang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BTdonhang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(63)))), ((int)(((byte)(92)))));
             this.BTdonhang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BTdonhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTdonhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTdonhang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BTdonhang.Location = new System.Drawing.Point(443, 0);
-            this.BTdonhang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BTdonhang.Location = new System.Drawing.Point(544, 0);
+            this.BTdonhang.Margin = new System.Windows.Forms.Padding(2);
             this.BTdonhang.Name = "BTdonhang";
-            this.BTdonhang.Size = new System.Drawing.Size(221, 76);
+            this.BTdonhang.Size = new System.Drawing.Size(272, 100);
             this.BTdonhang.TabIndex = 11;
             this.BTdonhang.Text = "Đơn hàng";
             this.BTdonhang.UseVisualStyleBackColor = false;
@@ -178,14 +188,17 @@
             // 
             // BTkhachhang
             // 
+            this.BTkhachhang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BTkhachhang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(63)))), ((int)(((byte)(92)))));
             this.BTkhachhang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BTkhachhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTkhachhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTkhachhang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BTkhachhang.Location = new System.Drawing.Point(663, 0);
-            this.BTkhachhang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BTkhachhang.Location = new System.Drawing.Point(816, 0);
+            this.BTkhachhang.Margin = new System.Windows.Forms.Padding(2);
             this.BTkhachhang.Name = "BTkhachhang";
-            this.BTkhachhang.Size = new System.Drawing.Size(221, 76);
+            this.BTkhachhang.Size = new System.Drawing.Size(272, 100);
             this.BTkhachhang.TabIndex = 10;
             this.BTkhachhang.Text = "Khách hàng";
             this.BTkhachhang.UseVisualStyleBackColor = false;
@@ -193,14 +206,17 @@
             // 
             // BTnhanvien
             // 
+            this.BTnhanvien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BTnhanvien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(63)))), ((int)(((byte)(92)))));
             this.BTnhanvien.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BTnhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTnhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTnhanvien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BTnhanvien.Location = new System.Drawing.Point(1105, 0);
-            this.BTnhanvien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BTnhanvien.Location = new System.Drawing.Point(1360, 0);
+            this.BTnhanvien.Margin = new System.Windows.Forms.Padding(2);
             this.BTnhanvien.Name = "BTnhanvien";
-            this.BTnhanvien.Size = new System.Drawing.Size(221, 76);
+            this.BTnhanvien.Size = new System.Drawing.Size(272, 100);
             this.BTnhanvien.TabIndex = 8;
             this.BTnhanvien.Text = "Nhân viên";
             this.BTnhanvien.UseVisualStyleBackColor = false;
@@ -208,14 +224,17 @@
             // 
             // BThethong
             // 
+            this.BThethong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BThethong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(63)))), ((int)(((byte)(92)))));
             this.BThethong.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BThethong.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BThethong.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BThethong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BThethong.Location = new System.Drawing.Point(0, 0);
-            this.BThethong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BThethong.Margin = new System.Windows.Forms.Padding(2);
             this.BThethong.Name = "BThethong";
-            this.BThethong.Size = new System.Drawing.Size(221, 76);
+            this.BThethong.Size = new System.Drawing.Size(272, 100);
             this.BThethong.TabIndex = 7;
             this.BThethong.Text = "Hệ thống";
             this.BThethong.UseVisualStyleBackColor = false;
@@ -223,14 +242,17 @@
             // 
             // BTncc
             // 
+            this.BTncc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BTncc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(63)))), ((int)(((byte)(92)))));
             this.BTncc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BTncc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTncc.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTncc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BTncc.Location = new System.Drawing.Point(884, 0);
-            this.BTncc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BTncc.Location = new System.Drawing.Point(1088, 0);
+            this.BTncc.Margin = new System.Windows.Forms.Padding(2);
             this.BTncc.Name = "BTncc";
-            this.BTncc.Size = new System.Drawing.Size(221, 76);
+            this.BTncc.Size = new System.Drawing.Size(272, 100);
             this.BTncc.TabIndex = 9;
             this.BTncc.Text = "Nhà cung cấp";
             this.BTncc.UseVisualStyleBackColor = false;
@@ -249,9 +271,9 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1540, 76);
+            this.panel1.Size = new System.Drawing.Size(1904, 100);
             this.panel1.TabIndex = 18;
             // 
             // BTthongke
@@ -261,12 +283,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BTthongke.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(63)))), ((int)(((byte)(92)))));
             this.BTthongke.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BTthongke.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTthongke.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTthongke.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BTthongke.Location = new System.Drawing.Point(1325, 0);
-            this.BTthongke.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BTthongke.Location = new System.Drawing.Point(1632, 0);
+            this.BTthongke.Margin = new System.Windows.Forms.Padding(2);
             this.BTthongke.Name = "BTthongke";
-            this.BTthongke.Size = new System.Drawing.Size(221, 76);
+            this.BTthongke.Size = new System.Drawing.Size(272, 100);
             this.BTthongke.TabIndex = 13;
             this.BTthongke.Text = "Thống kê";
             this.BTthongke.UseVisualStyleBackColor = false;
@@ -274,13 +296,13 @@
             // 
             // FormHeThong
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1540, 761);
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormHeThong";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
