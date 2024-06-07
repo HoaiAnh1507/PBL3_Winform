@@ -148,7 +148,7 @@ namespace DoHoaC_
                 throw new Exception(ex.Message);
             }
         }
-        public void DeleteDHCT(string id_dh)
+        public void DeleteDH(string id_dh)
         {
             try
             {

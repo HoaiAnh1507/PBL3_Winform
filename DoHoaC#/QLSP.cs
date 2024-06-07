@@ -68,7 +68,7 @@ namespace DoHoaC_
             }
             catch (Exception ex)
             {
-                throw new Exception("Đã xảy ra lỗi khi thêm Sản Phẩm vào cơ sở dữ liệu.", ex);
+                throw new Exception(ex.Message);
             }
         }
         public void UpdateSP(string ID_SP, DTB_SP sp)
@@ -101,7 +101,7 @@ namespace DoHoaC_
             }
             catch (Exception ex)
             {
-                throw new Exception("Đã xảy ra lỗi khi sửa Sản Phẩm.", ex);
+                throw new Exception(ex.Message);
             }
         }
         public void DeleteSP(string ID_SP)
@@ -125,7 +125,7 @@ namespace DoHoaC_
             }
             catch (Exception ex)
             {
-                throw new Exception("Đã xảy ra lỗi khi xóa Sản Phẩm.", ex);
+                throw new Exception(ex.Message);
             }
         }
         public DataSet SearchSP(string keyword)
@@ -231,7 +231,7 @@ namespace DoHoaC_
             }
             catch (Exception ex)
             {
-                throw new Exception("Đã xảy ra lỗi khi sửa Sản Phẩm.", ex);
+                throw new Exception(ex.Message);
             }
 
         }

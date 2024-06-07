@@ -86,7 +86,8 @@ namespace DoHoaC_
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
-                            QLDH.Instance.DeleteDHCT(iddh.ToString());
+                            QLDH.Instance.DeleteDH(iddh.ToString());
+                            QLDHCT.Instance.DeleteDHCT(iddh.ToString());
                             ShowDH();
                         }
                     }

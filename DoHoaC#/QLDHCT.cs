@@ -418,5 +418,24 @@ namespace DoHoaC_
                 }
             }
         }
+        public void DeleteDHCT(string id_dh)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                {
+                    string query = "DELETE FROM DONHANGCHITIET WHERE ID_DH = @ID_DH";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@ID_DH", id_dh);
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
