@@ -157,11 +157,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicLayer\BLL_QLDH.cs" />
+    <Compile Include="BusinessLogicLayer\BLL_QLDHCT.cs" />
     <Compile Include="BusinessLogicLayer\BLL_QLKH.cs" />
+    <Compile Include="BusinessLogicLayer\BLL_QLNCC.cs" />
+    <Compile Include="BusinessLogicLayer\BLL_QLNV.cs" />
     <Compile Include="BusinessLogicLayer\BLL_QLSP.cs" />
+    <Compile Include="BusinessLogicLayer\BLL_QLThongKe.cs" />
     <Compile Include="Const.cs" />
+    <Compile Include="DataAccessLayer\DAL_QLDH.cs" />
+    <Compile Include="DataAccessLayer\DAL_QLDHCT.cs" />
     <Compile Include="DataAccessLayer\DAL_QLKH.cs" />
+    <Compile Include="DataAccessLayer\DAL_QLNCC.cs" />
+    <Compile Include="DataAccessLayer\DAL_QLNV.cs" />
     <Compile Include="DataAccessLayer\DAL_QLSP.cs" />
+    <Compile Include="DataAccessLayer\DAL_QLThongKe.cs" />
     <Compile Include="DONHANG.cs">
       <DependentUpon>DTB.tt</DependentUpon>
     </Compile>

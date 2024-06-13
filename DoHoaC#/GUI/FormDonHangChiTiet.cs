@@ -32,7 +32,7 @@ namespace DoHoaC_
                 dataGridView1.Enabled = false;
                 TaoBT.Enabled = false;
                 NhapBT.Enabled = false;
-            }
+            }else textBoxIDDH.Enabled = false;
             currentIddh = iddh;
             ShowDHCT(currentIddh);
         }
@@ -61,12 +61,21 @@ namespace DoHoaC_
         }
         private void HuyBT_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn muốn hủy đơn hàng này không?", "Cảnh báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if(currentIddh == -1)
             {
-                QLDHCT.Instance.DeleteDHCT(textBoxIDDH.Text);
-                QLDH.Instance.DeleteDH(textBoxIDDH.Text);
+                if (MessageBox.Show("Bạn muốn hủy đơn hàng này không?", "Cảnh báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    QLDHCT.Instance.DeleteDHCT(textBoxIDDH.Text);
+                    QLDH.Instance.DeleteDH(textBoxIDDH.Text);
+                    TaoDonHangCreated?.Invoke(this, EventArgs.Empty);
+                    this.Close();
+                }
+            }
+            else
+            {
                 this.Close();
             }
+            
         }
         private void NhapBT_Click(object sender, EventArgs e)
         {
@@ -119,28 +128,10 @@ namespace DoHoaC_
                 if (QLDH.Instance.KiemTraDHTonTai(textBoxIDDH.Text))
                 {
                     QLDH.Instance.UpdateDH(dh);
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
-                    {
-                        if (row != null && !row.IsNewRow)
-                        {
-                            string ID_SP = row.Cells["ID_SP"].Value.ToString();
-                            int SO_LUONG = Convert.ToInt32(row.Cells["SO_LUONG"].Value);
-                            QLSP.Instance.UpdateSLSP(ID_SP, SO_LUONG);
-                        }
-                    }
                 }
                 else
                 {
                     QLDH.Instance.AddDH(dh);
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
-                    {
-                        if (row != null && !row.IsNewRow)
-                        {
-                            string ID_SP = row.Cells["ID_SP"].Value.ToString();
-                            int SO_LUONG = Convert.ToInt32(row.Cells["SO_LUONG"].Value);
-                            QLSP.Instance.UpdateSLSP(ID_SP, SO_LUONG);
-                        }
-                    }
                 }
                 TaoDonHangCreated?.Invoke(this, EventArgs.Empty);
 
@@ -151,6 +142,7 @@ namespace DoHoaC_
             }
             this.Close();
         }
+        int count = 0;
         private void buttonThemSP_Click(object sender, EventArgs e)
         {
             DTB_DH dh = new DTB_DH
@@ -173,34 +165,54 @@ namespace DoHoaC_
             {
                 if (dh.SOLUONG != 0)
                 {
-                    if (!QLDH.Instance.KiemTraDHTonTai(dh.ID_DH))
+                    if (currentIddh == -1)
                     {
-                        QLDH.Instance.AddDH(dh);
-                    }
-                    if (QLDHCT.Instance.KiemTraSPTonTai(dh.ID_DH, dh.ID_SP))
-                    {
-                        //QLDH.Instance.UpdateDH(dh);
-                        QLDHCT.Instance.UpdateSoLuong(dh.ID_DH, dh.ID_SP, dh.SOLUONG);
-                        dataGridView1.DataSource = QLDHCT.Instance.GetDHCT(Convert.ToInt32(dh.ID_DH)).Tables["DONHANGCHITIET"];
+                        if (!QLDH.Instance.KiemTraDHTonTai(dh.ID_DH))
+                        {
+                            QLDH.Instance.AddDH(dh);
+                            AddSP(dh);
+                            textBoxIDDH.Enabled = false;
+                            count++;
+                        }
+                        else if (QLDH.Instance.KiemTraDHTonTai(dh.ID_DH) && count != 0)
+                        {
+                            AddSP(dh);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Mã đơn hàng đã tồn tại", "Error");
+                        }
                     }
                     else
                     {
-                        QLDHCT.Instance.AddSP_DHCT(dh); // Thêm mới
-                        dataGridView1.DataSource = QLDHCT.Instance.GetDHCT(Convert.ToInt32(dh.ID_DH)).Tables["DONHANGCHITIET"];
-
+                        AddSP(dh);
                     }
-                    textBoxThanhToan.Text = QLDHCT.Instance.TongThanhToan(textBoxIDDH.Text).ToString();
                 }
                 else
                 {
-                    MessageBox.Show( "Vui lòng chọn số lượng sản phẩm", "Error");
+                    MessageBox.Show("Vui lòng chọn số lượng sản phẩm", "Error");
                 }
-                
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi khi thêm Sản phẩm: {ex.Message}");
             }
+        }
+        public void AddSP(DTB_DH dh)
+        {
+            if (QLDHCT.Instance.KiemTraSPTonTai(dh.ID_DH, dh.ID_SP))
+            {
+                //QLDH.Instance.UpdateDH(dh);
+                QLDHCT.Instance.UpdateSoLuong(dh.ID_DH, dh.ID_SP, dh.SOLUONG);
+                dataGridView1.DataSource = QLDHCT.Instance.GetDHCT(Convert.ToInt32(dh.ID_DH)).Tables["DONHANGCHITIET"];
+            }
+            else
+            {
+                QLDHCT.Instance.AddSP_DHCT(dh); // Thêm mới
+                dataGridView1.DataSource = QLDHCT.Instance.GetDHCT(Convert.ToInt32(dh.ID_DH)).Tables["DONHANGCHITIET"];
+
+            }
+            textBoxThanhToan.Text = QLDHCT.Instance.TongThanhToan(textBoxIDDH.Text).ToString();
         }
         private void comboBoxDM_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -38,6 +38,7 @@
             this.buttonXoa = new System.Windows.Forms.Button();
             this.buttonThem = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.RefreshLabel = new System.Windows.Forms.Label();
             this.textBoxTen = new System.Windows.Forms.TextBox();
             this.textBoxDiachi = new System.Windows.Forms.TextBox();
             this.textBoxSDT = new System.Windows.Forms.TextBox();
@@ -46,7 +47,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.Refresh = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -158,7 +158,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.panel5.Controls.Add(this.Refresh);
+            this.panel5.Controls.Add(this.RefreshLabel);
             this.panel5.Controls.Add(this.textBoxTen);
             this.panel5.Controls.Add(this.textBoxDiachi);
             this.panel5.Controls.Add(this.textBoxSDT);
@@ -171,6 +171,18 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1873, 128);
             this.panel5.TabIndex = 41;
+            // 
+            // RefreshLabel
+            // 
+            this.RefreshLabel.AutoSize = true;
+            this.RefreshLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.RefreshLabel.ForeColor = System.Drawing.Color.Red;
+            this.RefreshLabel.Location = new System.Drawing.Point(1598, 65);
+            this.RefreshLabel.Name = "RefreshLabel";
+            this.RefreshLabel.Size = new System.Drawing.Size(240, 33);
+            this.RefreshLabel.TabIndex = 27;
+            this.RefreshLabel.Text = "Click để làm mới ";
+            this.RefreshLabel.Click += new System.EventHandler(this.Refresh_Click);
             // 
             // textBoxTen
             // 
@@ -244,18 +256,6 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "Tên khách hàng";
             // 
-            // Refresh
-            // 
-            this.Refresh.AutoSize = true;
-            this.Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Refresh.ForeColor = System.Drawing.Color.Red;
-            this.Refresh.Location = new System.Drawing.Point(1598, 65);
-            this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(250, 33);
-            this.Refresh.TabIndex = 27;
-            this.Refresh.Text = "↻ Làm mới dữ liệu";
-            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
-            // 
             // UserControlKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -298,6 +298,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label Refresh;
+        private System.Windows.Forms.Label RefreshLabel;
     }
 }

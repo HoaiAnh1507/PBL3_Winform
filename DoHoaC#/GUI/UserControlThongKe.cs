@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Linq.Mapping;
+using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using DoHoaC_.BusinessLogicLayer;
 
 namespace DoHoaC_
 {
     public partial class UserControlThongKe : UserControl
     {
+        private BLL_QLThongKe _bllThongKe;
+
         public UserControlThongKe()
         {
             InitializeComponent();
             CBB();
             InitControls();
+            _bllThongKe = new BLL_QLThongKe();
         }
 
         private void CBB()
@@ -31,6 +31,7 @@ namespace DoHoaC_
             comboBoxThang.Items.AddRange(thang);
             comboBoxThang.SelectedIndex = 0;
         }
+
         private void InitControls()
         {
             dateTimePicker1.Enabled = false;
@@ -41,89 +42,107 @@ namespace DoHoaC_
         private void buttonXem_Click(object sender, EventArgs e)
         {
             string loaiTK = comboBoxloaiTK.SelectedItem.ToString();
-            DataTable dataTable = new DataTable();
-
+            switch (loaiTK)
+            {
+                case "Tổng doanh thu":
+                    loaiTK = "TongDoanhThu";
+                    break;
+                case "Nhân viên":
+                    loaiTK = "NhanVien";
+                    break;
+                case "Khách hàng":
+                    loaiTK = "KhachHang";
+                    break;
+            }
             if (radioButton1.Checked)
             {
                 DateTime startDate = dateTimePicker1.Value;
                 DateTime endDate = dateTimePicker2.Value;
 
-                switch (loaiTK)
-                {
-                    case "Tổng doanh thu":
-                        dataTable = QLThongKe.Instance.ThongkeByDate(startDate, endDate, "");
-                        break;
-                    case "Nhân viên":
-                        dataTable = QLThongKe.Instance.ThongkeByDate(startDate, endDate, "NhanVien");
-                        break;
-                    case "Khách hàng":
-                        dataTable = QLThongKe.Instance.ThongkeByDate(startDate, endDate, "KhachHang");
-                        break;
-                }
+                var result = _bllThongKe.ThongKeTheoKhoangThoiGian(startDate, endDate, loaiTK);
+
+                dataGridView1.DataSource = ConvertToDataTable(result);
+                UpdateChart(result);
             }
             else if (radioButton2.Checked)
             {
                 int month = int.Parse(comboBoxThang.SelectedItem.ToString());
-                switch (loaiTK)
-                {
-                    case "Tổng doanh thu":
-                        dataTable = QLThongKe.Instance.ThongkeByMonth(month, "");
-                        break;
-                    case "Nhân viên":
-                        dataTable = QLThongKe.Instance.ThongkeByMonth(month, "NhanVien");
-                        break;
-                    case "Khách hàng":
-                        dataTable = QLThongKe.Instance.ThongkeByMonth(month, "KhachHang");
-                        break;
-                }
+                var result = _bllThongKe.ThongKeTheoThang(month, loaiTK);
+
+                dataGridView1.DataSource = ConvertToDataTable(result);
+                UpdateChart(result);
             }
             else if (radioButton3.Checked)
             {
                 int year = int.Parse(textBoxNam.Text);
-                switch (loaiTK)
+                var result = _bllThongKe.ThongKeTheoNam(year, loaiTK);
+
+                dataGridView1.DataSource = ConvertToDataTable(result);
+                UpdateChart(result);
+            }
+        }
+
+        private DataTable ConvertToDataTable(List<dynamic> list)
+        {
+            var dt = new DataTable();
+
+            if (list.Count > 0)
+            {
+                var firstRecord = list[0];
+                foreach (var property in firstRecord.GetType().GetProperties())
                 {
-                    case "Tổng doanh thu":
-                        dataTable = QLThongKe.Instance.ThongkeByYear(year, "");
-                        break;
-                    case "Nhân viên":
-                        dataTable = QLThongKe.Instance.ThongkeByYear(year, "NhanVien");
-                        break;
-                    case "Khách hàng":
-                        dataTable = QLThongKe.Instance.ThongkeByYear(year, "KhachHang");
-                        break;
+                    dt.Columns.Add(property.Name);
+                }
+
+                foreach (var record in list)
+                {
+                    var row = dt.NewRow();
+                    foreach (var property in record.GetType().GetProperties())
+                    {
+                        row[property.Name] = property.GetValue(record);
+                    }
+                    dt.Rows.Add(row);
                 }
             }
-            dataGridView1.DataSource = dataTable;
-            chart1.Series.Clear();
-            chart1.ChartAreas.Clear();
-            chart1.ChartAreas.Add("ChartArea1");
+            return dt;
+        }
 
-            // Tạo series mới cho biểu đồ
-            Series series = new Series();
+        private void UpdateChart(List<dynamic> data)
+        {
+            chart1.Series.Clear();
+            chart1.Titles.Clear();
+
+            var series = new Series("Doanh Thu");
+            chart1.Series.Add(series);
             series.ChartType = SeriesChartType.Column;
 
-            // Lặp qua các dòng trong DataTable để thêm dữ liệu vào Series
-            foreach (DataRow row in dataTable.Rows)
+            foreach (var record in data)
             {
-                
-                if (dataTable.Columns.Count == 2)
+                string xValue = string.Empty;
+                if (record.GetType().GetProperty("NGAY_MUA") != null)
                 {
-                    string xValue = row[0].ToString();
-                    double yValue = Convert.ToDouble(row[1]);
-                    series.Points.AddXY(xValue, yValue);
+                    xValue = record.NGAY_MUA.ToString();
                 }
-                else
+                else if (record.GetType().GetProperty("ID_NV") != null)
                 {
-                    string xValue = row[0].ToString();
-                    double yValue = Convert.ToDouble(row[2]);
-                    series.Points.AddXY(xValue, yValue);
+                    xValue = record.ID_NV.ToString();
                 }
-                
+                else if (record.GetType().GetProperty("ID_KH") != null)
+                {
+                    xValue = record.ID_KH.ToString();
+                }
+                else if (record.GetType().GetProperty("THANG") != null)
+                {
+                    xValue = "Tháng " + record.THANG.ToString();
+                }
+
+                series.Points.AddXY(xValue, record.DoanhThu);
             }
-            // Thêm series vào biểu đồ
-            chart1.Series.Add(series);
+
+            chart1.Titles.Add("Thống kê doanh thu");
         }
-    private void radioButton1_CheckedChanged(object sender, EventArgs e)
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton1.Checked)
             {
@@ -149,3 +168,4 @@ namespace DoHoaC_
         }
     }
 }
+

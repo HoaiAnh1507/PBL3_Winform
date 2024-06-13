@@ -46,7 +46,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Refresh = new System.Windows.Forms.Label();
+            this.RefreshLabel = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -164,7 +164,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.Refresh);
+            this.panel1.Controls.Add(this.RefreshLabel);
             this.panel1.Controls.Add(this.textBoxTen);
             this.panel1.Controls.Add(this.textBoxDiachi);
             this.panel1.Controls.Add(this.textBoxSDT);
@@ -250,17 +250,17 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên nhân viên";
             // 
-            // Refresh
+            // RefreshLabel
             // 
-            this.Refresh.AutoSize = true;
-            this.Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Refresh.ForeColor = System.Drawing.Color.Red;
-            this.Refresh.Location = new System.Drawing.Point(1567, 65);
-            this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(250, 33);
-            this.Refresh.TabIndex = 27;
-            this.Refresh.Text = "↻ Làm mới dữ liệu";
-            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
+            this.RefreshLabel.AutoSize = true;
+            this.RefreshLabel.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RefreshLabel.ForeColor = System.Drawing.Color.Red;
+            this.RefreshLabel.Location = new System.Drawing.Point(1538, 66);
+            this.RefreshLabel.Name = "RefreshLabel";
+            this.RefreshLabel.Size = new System.Drawing.Size(237, 35);
+            this.RefreshLabel.TabIndex = 28;
+            this.RefreshLabel.Text = "Click để làm mới ";
+            this.RefreshLabel.Click += new System.EventHandler(this.Refresh_Click);
             // 
             // UserControlNhanVien
             // 
@@ -304,6 +304,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label Refresh;
+        private System.Windows.Forms.Label RefreshLabel;
     }
 }

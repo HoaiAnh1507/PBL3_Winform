@@ -4,7 +4,7 @@ using System.Data;
 using System.Windows.Forms;
 using DoHoaC_.DataAccessLayer;
 
-namespace DoHoaC_
+namespace DoHoaC_.BusinessLogicLayer
 {
     public class BLL_QLKH
     {

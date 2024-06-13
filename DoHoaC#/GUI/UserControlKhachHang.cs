@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
+using DoHoaC_.BusinessLogicLayer;
 namespace DoHoaC_
 {
     public partial class UserControlKhachHang : UserControl
@@ -39,7 +39,7 @@ namespace DoHoaC_
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         row.Selected = false;
-                        if (Convert.ToInt32(row.Cells["ID_SP"].Value) == kh.ID_KH)
+                        if (Convert.ToInt32(row.Cells["ID_KH"].Value) == kh.ID_KH)
                         {
                             row.Selected = true; // Chọn toàn bộ hàng
                             DGVViewClick();
@@ -63,7 +63,6 @@ namespace DoHoaC_
                     int ID_KH = (int) dataGridView1.SelectedRows[0].Cells["ID_KH"].Value;
                     var kh = new KHACHHANG
                     {
-                        //ID_KH = ID_KH,
                         TEN_KHACH_HANG = textBoxTen.Text,
                         DIACHI = textBoxDiachi.Text,
                         SDT = textBoxSDT.Text,
@@ -78,7 +77,7 @@ namespace DoHoaC_
                         foreach (DataGridViewRow row in dataGridView1.Rows)
                         {
                             row.Selected = false;
-                            if (Convert.ToInt32(row.Cells["ID_SP"].Value) == kh.ID_KH)
+                            if (Convert.ToInt32(row.Cells["ID_KH"].Value) == ID_KH)
                             {
                                 row.Selected = true; // Chọn toàn bộ hàng
                                 DGVViewClick();

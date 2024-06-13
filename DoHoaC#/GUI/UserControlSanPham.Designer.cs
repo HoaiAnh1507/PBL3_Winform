@@ -50,10 +50,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.RefreshLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Refresh = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel2.SuspendLayout();
@@ -196,7 +196,7 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.Refresh);
+            this.panel1.Controls.Add(this.RefreshLabel);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label1);
@@ -208,7 +208,7 @@
             // textBoxSL
             // 
             this.textBoxSL.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBoxSL.Location = new System.Drawing.Point(1429, 59);
+            this.textBoxSL.Location = new System.Drawing.Point(1403, 57);
             this.textBoxSL.Name = "textBoxSL";
             this.textBoxSL.Size = new System.Drawing.Size(155, 38);
             this.textBoxSL.TabIndex = 28;
@@ -259,7 +259,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label7.Location = new System.Drawing.Point(1424, 16);
+            this.label7.Location = new System.Drawing.Point(1398, 14);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(120, 31);
             this.label7.TabIndex = 6;
@@ -295,6 +295,18 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "ID_NCC";
             // 
+            // RefreshLabel
+            // 
+            this.RefreshLabel.AutoSize = true;
+            this.RefreshLabel.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RefreshLabel.ForeColor = System.Drawing.Color.Red;
+            this.RefreshLabel.Location = new System.Drawing.Point(1582, 57);
+            this.RefreshLabel.Name = "RefreshLabel";
+            this.RefreshLabel.Size = new System.Drawing.Size(237, 35);
+            this.RefreshLabel.TabIndex = 2;
+            this.RefreshLabel.Text = "Click để làm mới ";
+            this.RefreshLabel.Click += new System.EventHandler(this.Refresh_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -309,7 +321,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label9.Location = new System.Drawing.Point(1325, 62);
+            this.label9.Location = new System.Drawing.Point(1312, 61);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 31);
             this.label9.TabIndex = 0;
@@ -324,18 +336,6 @@
             this.label1.Size = new System.Drawing.Size(186, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên danh mục";
-            // 
-            // Refresh
-            // 
-            this.Refresh.AutoSize = true;
-            this.Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Refresh.ForeColor = System.Drawing.Color.Red;
-            this.Refresh.Location = new System.Drawing.Point(1590, 64);
-            this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(250, 33);
-            this.Refresh.TabIndex = 2;
-            this.Refresh.Text = "↻ Làm mới dữ liệu";
-            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
             // 
             // UserControlSanPham
             // 
@@ -387,6 +387,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbbIdNCC;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label Refresh;
+        private System.Windows.Forms.Label RefreshLabel;
     }
 }

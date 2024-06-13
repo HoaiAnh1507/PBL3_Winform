@@ -57,6 +57,16 @@ namespace DoHoaC_
                     f.TaoDonHangCreated += (s, ev) => ShowDH();
                     DonHangChiTietOpened?.Invoke(this, f);
                     f.Show();
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        row.Selected = false;
+                        if (Convert.ToInt32(row.Cells["ID_DH"].Value) == iddh)
+                        {
+                            row.Selected = true; // Chọn toàn bộ hàng
+                            //DGVViewClick();
+                            break;
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {

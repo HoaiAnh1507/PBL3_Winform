@@ -14,13 +14,11 @@ namespace DoHoaC_
 
         private void ShowAllNV()
         {
-            dataGridView1.DataSource = BLL_QLNV.Instance.GetAllNhanVien();
-            textBoxTen.Clear();
-            textBoxDiachi.Clear();
-            textBoxSDT.Clear();
-            textBoxChucvu.Clear();
+            dataGridView1.DataSource = null;
+            BLL_QLNV.Instance.GetAllNhanVien(dataGridView1);
+            refreshTextbox();
         }
-
+        
         private void buttonThemNV_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Xác nhận thêm thông tin nhân viên mới?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
@@ -38,6 +36,16 @@ namespace DoHoaC_
                     BLL_QLNV.Instance.AddNhanVien(nv);
                     MessageBox.Show("Thêm Nhân viên thành công.");
                     ShowAllNV();
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        row.Selected = false;
+                        if (Convert.ToInt32(row.Cells["ID_NV"].Value) == nv.ID_NV)
+                        {
+                            row.Selected = true; // Chọn toàn bộ hàng
+                            DGVViewClick();
+                            break;
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -66,6 +74,16 @@ namespace DoHoaC_
                         BLL_QLNV.Instance.UpdateNhanVien(ID_NV, nv);
                         MessageBox.Show("Cập nhật Nhân viên thành công.");
                         ShowAllNV();
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            row.Selected = false;
+                            if (Convert.ToInt32(row.Cells["ID_NV"].Value) == ID_NV)
+                            {
+                                row.Selected = true; // Chọn toàn bộ hàng
+                                DGVViewClick();
+                                break;
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -106,6 +124,27 @@ namespace DoHoaC_
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            DGVViewClick();
+        }
+
+        private void textBoxTimkiem_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string keyword = textBoxTimkiem.Text;
+                dataGridView1.DataSource = BLL_QLNV.Instance.SearchNhanVien(keyword);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tìm kiếm Khách Hàng: {ex.Message}");
+            }
+        }
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            refreshTextbox();
+        }
+        private void DGVViewClick()
+        {
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 textBoxTen.Text = dataGridView1.SelectedRows[0].Cells["TEN_NHAN_VIEN"].Value.ToString();
@@ -114,11 +153,12 @@ namespace DoHoaC_
                 textBoxChucvu.Text = dataGridView1.SelectedRows[0].Cells["CHUCVU"].Value.ToString();
             }
         }
-
-        private void textBoxTimkiem_TextChanged(object sender, EventArgs e)
+        private void refreshTextbox()
         {
-            string keyword = textBoxTimkiem.Text;
-            dataGridView1.DataSource = BLL_QLNV.Instance.SearchNhanVien(keyword);
+            textBoxTen.Clear();
+            textBoxDiachi.Clear();
+            textBoxSDT.Clear();
+            textBoxChucvu.Clear();
         }
     }
 }

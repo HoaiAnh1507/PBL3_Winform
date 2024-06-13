@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.RefreshLabel = new System.Windows.Forms.Label();
             this.textBoxTen = new System.Windows.Forms.TextBox();
             this.textBoxMota = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.buttonSua = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Refresh = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -57,7 +57,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.Refresh);
+            this.panel1.Controls.Add(this.RefreshLabel);
             this.panel1.Controls.Add(this.textBoxTen);
             this.panel1.Controls.Add(this.textBoxMota);
             this.panel1.Controls.Add(this.label5);
@@ -70,6 +70,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1873, 128);
             this.panel1.TabIndex = 34;
+            // 
+            // RefreshLabel
+            // 
+            this.RefreshLabel.AutoSize = true;
+            this.RefreshLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.RefreshLabel.ForeColor = System.Drawing.Color.Red;
+            this.RefreshLabel.Location = new System.Drawing.Point(1561, 63);
+            this.RefreshLabel.Name = "RefreshLabel";
+            this.RefreshLabel.Size = new System.Drawing.Size(240, 33);
+            this.RefreshLabel.TabIndex = 27;
+            this.RefreshLabel.Text = "Click để làm mới ";
+            this.RefreshLabel.Click += new System.EventHandler(this.Refresh_Click);
             // 
             // textBoxTen
             // 
@@ -243,18 +255,6 @@
             this.panel2.Size = new System.Drawing.Size(1877, 123);
             this.panel2.TabIndex = 35;
             // 
-            // Refresh
-            // 
-            this.Refresh.AutoSize = true;
-            this.Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Refresh.ForeColor = System.Drawing.Color.Red;
-            this.Refresh.Location = new System.Drawing.Point(1561, 63);
-            this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(250, 33);
-            this.Refresh.TabIndex = 27;
-            this.Refresh.Text = "↻ Làm mới dữ liệu";
-            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
-            // 
             // UserControlNCC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -297,6 +297,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button buttonSua;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label Refresh;
+        private System.Windows.Forms.Label RefreshLabel;
     }
 }
