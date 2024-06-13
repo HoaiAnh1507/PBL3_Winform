@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoHoaC_.BusinessLogicLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -96,7 +97,7 @@ namespace DoHoaC_
         }
         void PhanQuyen()
         {
-            if (Const.LoaiTaiKhoan == false)
+            if (BLL_QLTK.LoaiTaiKhoan == false)
             {
                 BTnhanvien.Enabled = false;
                 BTncc.Enabled = false;

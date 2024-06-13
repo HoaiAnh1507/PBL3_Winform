@@ -26,12 +26,6 @@ namespace DoHoaC_
             get => loaiTaiKhoan;
             set => loaiTaiKhoan = value;
         }
-        public DTB_TaiKhoan(string tentaikhoan, string matkhau, bool loaiTaiKhoan)
-        {
-            this.TenTaiKhoan = tentaikhoan;
-            this.MatKhau = matkhau;
-            this.LoaiTaiKhoan = loaiTaiKhoan;
-        }
         public DTB_TaiKhoan() { }
     }
 }

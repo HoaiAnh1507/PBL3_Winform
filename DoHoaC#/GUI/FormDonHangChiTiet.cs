@@ -45,7 +45,7 @@ namespace DoHoaC_
                 textBoxIDDH.Text = currentIddh.ToString();
                 comboBoxTenKH.DataSource = QLDHCT.Instance.ShowComBoBoxTenKH();
                 comboBoxTenNV.DataSource = QLDHCT.Instance.ShowComBoBoxTenNV();
-                comboBoxDM.DataSource = QLSP.Instance.ShowComboBoxDanhMuc();
+                //comboBoxDM.DataSource = QLSP.Instance.ShowComboBoxDanhMuc();
                 comboBoxTenKH.Text = QLDH.Instance.GetKHNV(iddh, "kh");
                 comboBoxTenNV.SelectedItem = QLDH.Instance.GetKHNV(iddh, "nv");
                 textBoxThanhToan.Text = QLDHCT.Instance.TongThanhToan(iddh.ToString()).ToString();
@@ -55,7 +55,7 @@ namespace DoHoaC_
                 dataGridView1.DataSource = QLDHCT.Instance.GetDHCT(0).Tables["DONHANGCHITIET"];
                 comboBoxTenKH.DataSource = QLDHCT.Instance.ShowComBoBoxTenKH();
                 comboBoxTenNV.DataSource = QLDHCT.Instance.ShowComBoBoxTenNV();
-                comboBoxDM.DataSource = QLSP.Instance.ShowComboBoxDanhMuc();
+                //comboBoxDM.DataSource = QLSP.Instance.ShowComboBoxDanhMuc();
                 textBoxThanhToan.Text = QLDHCT.Instance.TongThanhToan(iddh.ToString()).ToString();
             }
         }

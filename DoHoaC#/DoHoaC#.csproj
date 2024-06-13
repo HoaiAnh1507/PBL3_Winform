@@ -164,7 +164,8 @@
     <Compile Include="BusinessLogicLayer\BLL_QLNV.cs" />
     <Compile Include="BusinessLogicLayer\BLL_QLSP.cs" />
     <Compile Include="BusinessLogicLayer\BLL_QLThongKe.cs" />
-    <Compile Include="Const.cs" />
+    <Compile Include="BusinessLogicLayer\BLL_QLTK.cs" />
+    <Compile Include="BusinessLogicLayer\DAL_DonHangChiTiet.cs" />
     <Compile Include="DataAccessLayer\DAL_QLDH.cs" />
     <Compile Include="DataAccessLayer\DAL_QLDHCT.cs" />
     <Compile Include="DataAccessLayer\DAL_QLKH.cs" />
@@ -172,6 +173,7 @@
     <Compile Include="DataAccessLayer\DAL_QLNV.cs" />
     <Compile Include="DataAccessLayer\DAL_QLSP.cs" />
     <Compile Include="DataAccessLayer\DAL_QLThongKe.cs" />
+    <Compile Include="DataAccessLayer\DAL_QLTK.cs" />
     <Compile Include="DONHANG.cs">
       <DependentUpon>DTB.tt</DependentUpon>
     </Compile>
@@ -193,8 +195,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DTB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DTO\DTB_DH.cs" />
-    <Compile Include="DTO\DTB_SP.cs" />
+    <Compile Include="DTB_DH.cs" />
+    <Compile Include="DTB_SP.cs" />
     <Compile Include="GUI\FormDoiMK.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,8 +214,6 @@
     </Compile>
     <Compile Include="QLDH.cs" />
     <Compile Include="QLDHCT.cs" />
-    <Compile Include="QLTaiKhoan.cs" />
-    <Compile Include="QLThongKe.cs" />
     <Compile Include="GUI\UserControlSanPham.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -226,16 +226,12 @@
     <Compile Include="GUI\DanhMucHinhAnh.Designer.cs">
       <DependentUpon>DanhMucHinhAnh.cs</DependentUpon>
     </Compile>
-    <Compile Include="DanhSachTaiKhoan.cs" />
     <Compile Include="GUI\UserControlDonHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\UserControlDonHang.Designer.cs">
       <DependentUpon>UserControlDonHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="DTO\DTB_KH.cs" />
-    <Compile Include="DTO\DTB_NCC.cs" />
-    <Compile Include="DTO\DTB_NV.cs" />
     <Compile Include="GUI\FormDonHangChiTiet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,12 +276,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLKH.cs" />
-    <Compile Include="QLNCC.cs" />
     <Compile Include="ConnectionString.cs" />
-    <Compile Include="QLNV.cs" />
-    <Compile Include="QLSP.cs" />
-    <Compile Include="DTO\DTB_TaiKhoan.cs" />
     <Compile Include="GUI\UserControlThongKe.cs">
       <SubType>UserControl</SubType>
     </Compile>

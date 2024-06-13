@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoHoaC_.BusinessLogicLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -86,7 +87,7 @@ namespace DoHoaC_
                 int iddh = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID_DH"].Value);
                 try
                 {
-                    if (!Const.LoaiTaiKhoan && trangthai)
+                    if (!BLL_QLTK.LoaiTaiKhoan && trangthai)
                     {
                         MessageBox.Show("Bạn không có quyền hạn xóa đơn hàng đã được thanh toán");
                     }

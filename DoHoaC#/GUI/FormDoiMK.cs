@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using DoHoaC_.BusinessLogicLayer;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DoHoaC_
@@ -24,10 +19,10 @@ namespace DoHoaC_
 
         private void buttonLuuMK_Click(object sender, EventArgs e)
         {
-            //DanhSachTaiKhoan.Instance.LoadData();
-            string currentUsername = Const.LoaiTaiKhoan ? "admin" : "nhanvien";
-            // Lấy tài khoản hiện đang đăng nhập từ danh sách tài khoản
-            DTB_TaiKhoan currentAccount = DanhSachTaiKhoan.Instance.ListTaiKhoan.FirstOrDefault(acc => acc.TenTaiKhoan == currentUsername);
+            string currentUsername = BLL_QLTK.LoaiTaiKhoan ? "admin" : "nhanvien";
+
+            // Lấy thông tin tài khoản từ BLL_QLTK
+            TAIKHOAN currentAccount = BLL_QLTK.Instance.GetTaiKhoanByTenTaiKhoan(currentUsername);
 
             if (currentAccount != null && currentAccount.MatKhau == textBoxMKcu.Text)
             {
@@ -39,8 +34,8 @@ namespace DoHoaC_
                         {
                             try
                             {
-                                // Thực hiện đổi mật khẩu cho tài khoản
-                                QLTaiKhoan.Instance.ChangePassword(currentAccount, textBoxMKmoi.Text);
+                                // Thực hiện đổi mật khẩu
+                                BLL_QLTK.Instance.ChangePassword(currentUsername, textBoxMKmoi.Text);
                                 MessageBox.Show("Đổi mật khẩu thành công.");
                                 this.Close();
                             }
@@ -59,27 +54,11 @@ namespace DoHoaC_
                 {
                     MessageBox.Show("Vui lòng điền mật khẩu mới");
                 }
-                
             }
             else
             {
                 MessageBox.Show("Mật khẩu cũ không đúng!");
             }
-        }
-
-
-
-        public bool KiemTraTaiKhoan(string tentaikhoan, string matkhau)
-        {
-            List<DTB_TaiKhoan> ListTaiKhoan = DanhSachTaiKhoan.Instance.ListTaiKhoan;
-            for (int i = 0; i < ListTaiKhoan.Count; i++)
-            {
-                if (tentaikhoan == ListTaiKhoan[i].TenTaiKhoan && matkhau == ListTaiKhoan[i].MatKhau)
-                {
-                    return true;
-                }
-            }
-            return false;
         }
     }
 }

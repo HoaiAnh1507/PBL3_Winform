@@ -1,68 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DoHoaC_.BusinessLogicLayer;
+using System;
 using System.Windows.Forms;
 
 namespace DoHoaC_
 {
     public partial class FormDangNhap : Form
     {
-        List<DTB_TaiKhoan> ListTaiKhoan = DanhSachTaiKhoan.Instance.ListTaiKhoan;
-        //public event EventHandler<FormHeThong> FormHeThongOpened;
-        public static FormDangNhap Instance;
-        public string CurrentUsername { get; private set; }
+        public static FormDangNhap Instance { get; private set; }
+
         public FormDangNhap()
         {
             InitializeComponent();
             Instance = this;
         }
-        private void ThoatBT_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+
         private void DangNhapBT_Click(object sender, EventArgs e)
         {
-            //DanhSachTaiKhoan.Instance.LoadData();
-            if (KiemTraDangNhap(textBoxTenDN.Text, textBoxMatkhau.Text))
+            try
             {
-                CurrentUsername = textBoxTenDN.Text;
-                textBoxTenDN.Text = "";
-                textBoxMatkhau.Text = "";
-                textBoxTenDN.Focus();
-                this.Hide();
-                FormHeThong f = new FormHeThong();
-                f.Show();
-            }
-            else
-            {
-                MessageBox.Show("Sai tên tài khoản hoặc mật khẩu");
-                textBoxTenDN.Focus();
-            }
-        }
-        bool KiemTraDangNhap(string tentaikhoan, string matkhau)
-        {
-            for (int i = 0; i < ListTaiKhoan.Count; i++)
-            {
-                if (tentaikhoan == ListTaiKhoan[i].TenTaiKhoan && matkhau == ListTaiKhoan[i].MatKhau)
+                string tenTaiKhoan = textBoxTenDN.Text;
+                string matKhau = textBoxMatkhau.Text;
+
+                if (string.IsNullOrEmpty(tenTaiKhoan) || string.IsNullOrEmpty(matKhau))
                 {
-                    Const.LoaiTaiKhoan = ListTaiKhoan[i].LoaiTaiKhoan;
-                    return true;
+                    throw new ArgumentException("Tên tài khoản và mật khẩu không được để trống.");
                 }
-            }
-            return false;
-        }
-        private void textBoxMatkhau_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (KiemTraDangNhap(textBoxTenDN.Text, textBoxMatkhau.Text))
+
+                bool isValidLogin = BLL_QLTK.Instance.KiemTraDangNhap(tenTaiKhoan, matKhau);
+
+                if (isValidLogin)
                 {
-                    CurrentUsername = textBoxTenDN.Text;
+                    bool loaiTaiKhoan = BLL_QLTK.Instance.GetLoaiTaiKhoan(tenTaiKhoan) ?? false;
                     textBoxTenDN.Text = "";
                     textBoxMatkhau.Text = "";
                     textBoxTenDN.Focus();
@@ -72,14 +40,60 @@ namespace DoHoaC_
                 }
                 else
                 {
-                    MessageBox.Show("Sai tên tài khoản hoặc mật khẩu ");
+                    MessageBox.Show("Sai tên tài khoản hoặc mật khẩu");
                     textBoxTenDN.Focus();
                 }
             }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+                textBoxTenDN.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đăng nhập không thành công. Vui lòng thử lại sau." + ex.Message);
+                textBoxTenDN.Focus();
+            }
         }
+
+        private void ThoatBT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Application.Exit();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi đóng ứng dụng: " + ex.Message);
+            }
+        }
+
+        private void textBoxMatkhau_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    DangNhapBT_Click(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đăng nhập không thành công. Vui lòng thử lại sau." + ex.Message);
+                textBoxTenDN.Focus();
+            }
+        }
+
         private void FormDangNhap_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            try
+            {
+                Application.Exit();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi đóng ứng dụng: " + ex.Message);
+            }
         }
     }
 }
