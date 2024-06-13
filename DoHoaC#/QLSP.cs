@@ -46,7 +46,7 @@ namespace DoHoaC_
                 if (string.IsNullOrWhiteSpace(sp.TEN_SAN_PHAM))
                     throw new ArgumentException("Tên Sản Phẩm không được để trống.", nameof(sp.TEN_SAN_PHAM));
                 
-                if (IsSPExists(sp.TEN_SAN_PHAM))
+                if (IsSPExists(sp.TEN_SAN_PHAM, sp.ID_NCC))
                 {
                     throw new InvalidOperationException("Sản Phẩm đã tồn tại trong cơ sở dữ liệu.");
                 }
@@ -153,16 +153,16 @@ namespace DoHoaC_
             }
             return dataSet;
         }
-        private bool IsSPExists(string tenSP)
+        private bool IsSPExists(string tenSP, string idncc)
         {
-            string query = "SELECT COUNT(*) FROM SANPHAM WHERE TEN_SAN_PHAM = @TEN_SAN_PHAM";
+            string query = "SELECT COUNT(*) FROM SANPHAM WHERE TEN_SAN_PHAM = @TEN_SAN_PHAM AND ID_NCC = @ID_NCC";
 
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@TEN_SAN_PHAM", tenSP);
-
+                    command.Parameters.AddWithValue("@ID_NCC", idncc);
                     connection.Open();
                     int count = (int)command.ExecuteScalar();
                     return count > 0;

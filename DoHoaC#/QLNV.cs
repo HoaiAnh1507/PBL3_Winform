@@ -43,13 +43,12 @@ namespace DoHoaC_
 
                 if (string.IsNullOrWhiteSpace(nv.TEN_NHAN_VIEN))
                     throw new ArgumentException("Tên Nhân viên không được để trống.", nameof(nv.TEN_NHAN_VIEN));
-                if (IsNVExists(nv.TEN_NHAN_VIEN))
+                if (IsNVExists(nv.TEN_NHAN_VIEN, nv.DIACHI, nv.SDT))
                 {
                     throw new InvalidOperationException("Nhân viên đã tồn tại trong cơ sở dữ liệu.");
                 }
                 using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
                 {
-
                     string query = "INSERT INTO NHANVIEN (TEN_NHAN_VIEN, DIACHI, SDT, CHUCVU) VALUES (@TEN_NHAN_VIEN, @DIACHI, @SDT, @CHUCVU)";
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@TEN_NHAN_VIEN", nv.TEN_NHAN_VIEN);
@@ -65,8 +64,7 @@ namespace DoHoaC_
             {
                 throw new Exception(ex.Message);
             }
-        }
-        
+        }      
         public void UpdateNV(string ID_NV, DTB_NV nv)
         {
             try
@@ -148,20 +146,16 @@ namespace DoHoaC_
             }
             return dataSet;
         }
-
-
-
-        //Hàm kiểm tra nhân viên đã tồn tại hay chưa
-        private bool IsNVExists(string tenNV)
+        private bool IsNVExists(string tenNV, string diachi, string sdt)
         {
-            string query = "SELECT COUNT(*) FROM NHANVIEN WHERE TEN_NHAN_VIEN = @TEN_NHAN_VIEN";
-
+            string query = "SELECT COUNT(*) FROM NHANVIEN WHERE TEN_NHAN_VIEN = @TEN_NHAN_VIEN AND DIACHI = @DIACHI AND SDT = @SDT";
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@TEN_NHAN_VIEN", tenNV);
-
+                    command.Parameters.AddWithValue("@DIACHI", diachi);
+                    command.Parameters.AddWithValue("@SDT", sdt);
                     connection.Open();
                     int count = (int)command.ExecuteScalar();
                     return count > 0;

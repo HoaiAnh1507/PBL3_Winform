@@ -63,6 +63,8 @@ namespace DoHoaC_
         {
             if (MessageBox.Show("Bạn muốn hủy đơn hàng này không?", "Cảnh báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                QLDHCT.Instance.DeleteDHCT(textBoxIDDH.Text);
+                QLDH.Instance.DeleteDH(textBoxIDDH.Text);
                 this.Close();
             }
         }
@@ -82,20 +84,21 @@ namespace DoHoaC_
             };
             try
             {
-                if (QLDHCT.Instance.KiemTraDHTonTai(textBoxIDDH.Text))
+                if (QLDH.Instance.KiemTraDHTonTai(textBoxIDDH.Text))
                 {
-                    QLDH.Instance.UpdateDHCT(dh);
+                    QLDH.Instance.UpdateDH(dh);
                 }
                 else
                 {
-                    QLDH.Instance.AddDHCT(dh);
+                    QLDH.Instance.AddDH(dh);
                 }
+                TaoDonHangCreated?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi khi thêm & cập nhật đơn hàng: {ex.Message}");
             }
-            TaoDonHangCreated?.Invoke(this, EventArgs.Empty);
+            
             this.Close();
         }
         private void TaoBT_Click(object sender, EventArgs e)
@@ -113,9 +116,9 @@ namespace DoHoaC_
             };
             try
             {
-                if (QLDHCT.Instance.KiemTraDHTonTai(textBoxIDDH.Text))
+                if (QLDH.Instance.KiemTraDHTonTai(textBoxIDDH.Text))
                 {
-                    QLDH.Instance.UpdateDHCT(dh);
+                    QLDH.Instance.UpdateDH(dh);
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         if (row != null && !row.IsNewRow)
@@ -128,7 +131,7 @@ namespace DoHoaC_
                 }
                 else
                 {
-                    QLDH.Instance.AddDHCT(dh);
+                    QLDH.Instance.AddDH(dh);
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         if (row != null && !row.IsNewRow)
@@ -146,7 +149,6 @@ namespace DoHoaC_
             {
                 MessageBox.Show($"Lỗi khi thêm & cập nhật đơn hàng: {ex.Message}");
             }
-
             this.Close();
         }
         private void buttonThemSP_Click(object sender, EventArgs e)
@@ -155,10 +157,12 @@ namespace DoHoaC_
             {
                 ID_DH = textBoxIDDH.Text,
                 ID_NV = comboBoxIDNV.Text,
+                TEN_NHAN_VIEN = comboBoxTenNV.Text,
                 ID_KH = comboBoxIDKH.Text,
+                TEN_KHACH_HANG = comboBoxTenKH.Text,
                 ID_SP = comboBoxIDSP.Text,
                 TEN_SAN_PHAM = comboBoxTenSP.Text,
-                //NGAYMUA = DateTime.Today,
+                NGAY_MUA = DateTime.Now,
                 DONVI = QLDHCT.Instance.GetDonVi(comboBoxIDSP.Text),
                 DONGIA = QLDHCT.Instance.GetDonGia(comboBoxIDSP.Text),
                 SOLUONG = (int)domainSL.Value,
@@ -169,8 +173,13 @@ namespace DoHoaC_
             {
                 if (dh.SOLUONG != 0)
                 {
+                    if (!QLDH.Instance.KiemTraDHTonTai(dh.ID_DH))
+                    {
+                        QLDH.Instance.AddDH(dh);
+                    }
                     if (QLDHCT.Instance.KiemTraSPTonTai(dh.ID_DH, dh.ID_SP))
                     {
+                        //QLDH.Instance.UpdateDH(dh);
                         QLDHCT.Instance.UpdateSoLuong(dh.ID_DH, dh.ID_SP, dh.SOLUONG);
                         dataGridView1.DataSource = QLDHCT.Instance.GetDHCT(Convert.ToInt32(dh.ID_DH)).Tables["DONHANGCHITIET"];
                     }

@@ -52,7 +52,6 @@ namespace DoHoaC_
                     using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
                     {
                         string query1 = "INSERT INTO DONHANGCHITIET (ID_DH, ID_SP, TEN_SAN_PHAM, DON_VI, DON_GIA, SO_LUONG, THANH_TIEN, TONG_THANH_TOAN) VALUES (@ID_DH, @ID_SP, @TEN_SAN_PHAM, @DON_VI, @DON_GIA, @SO_LUONG, @THANH_TIEN, @TONG_THANH_TOAN)";
-
                         SqlCommand command = new SqlCommand(query1, connection);
                         command.Parameters.AddWithValue("@ID_DH", dh.ID_DH);
                         command.Parameters.AddWithValue("@ID_SP", dh.ID_SP ?? "");
@@ -402,9 +401,9 @@ namespace DoHoaC_
             
             
         }
-        public bool KiemTraDHTonTai(string ID_DH)
+        public bool KiemTraDHCTTonTai(string ID_DH)
         {
-            string query = "SELECT COUNT(*) FROM DONHANG where ID_DH = @ID_DH";
+            string query = "SELECT COUNT(*) FROM DONHANGCHITIET where ID_DH = @ID_DH";
 
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {

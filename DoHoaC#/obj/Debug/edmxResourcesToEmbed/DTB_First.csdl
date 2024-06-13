@@ -12,6 +12,9 @@
     <Property Name="NGAY_MUA" Type="DateTime" Precision="3" />
     <Property Name="TONG_THANH_TOAN" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="TRANG_THAI" Type="Boolean" />
+    <NavigationProperty Name="DONHANGCHITIETs" Relationship="Self.fk_donhang" FromRole="DONHANG" ToRole="DONHANGCHITIET" />
+    <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_IDKH_IDKH" FromRole="DONHANG" ToRole="KHACHHANG" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_IDNV_IDNV" FromRole="DONHANG" ToRole="NHANVIEN" />
   </EntityType>
   <EntityType Name="DONHANGCHITIET">
     <Key>
@@ -27,6 +30,8 @@
     <Property Name="SO_LUONG" Type="Int32" />
     <Property Name="THANH_TIEN" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="TONG_THANH_TOAN" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="DONHANG" Relationship="Self.fk_donhang" FromRole="DONHANGCHITIET" ToRole="DONHANG" />
+    <NavigationProperty Name="SANPHAM" Relationship="Self.fk_sanpham" FromRole="DONHANGCHITIET" ToRole="SANPHAM" />
   </EntityType>
   <EntityType Name="KHACHHANG">
     <Key>
@@ -37,6 +42,7 @@
     <Property Name="DIACHI" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="INFOR" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DONHANGs" Relationship="Self.FK_IDKH_IDKH" FromRole="KHACHHANG" ToRole="DONHANG" />
   </EntityType>
   <EntityType Name="NHACUNGCAP">
     <Key>
@@ -58,6 +64,7 @@
     <Property Name="DIACHI" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="CHUCVU" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DONHANGs" Relationship="Self.FK_IDNV_IDNV" FromRole="NHANVIEN" ToRole="DONHANG" />
   </EntityType>
   <EntityType Name="SANPHAM">
     <Key>
@@ -70,6 +77,7 @@
     <Property Name="DON_VI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="DON_GIA" Type="Decimal" Precision="10" Scale="4" />
     <Property Name="SO_LUONG_CON_LAI" Type="Int32" />
+    <NavigationProperty Name="DONHANGCHITIETs" Relationship="Self.fk_sanpham" FromRole="SANPHAM" ToRole="DONHANGCHITIET" />
     <NavigationProperty Name="NHACUNGCAP" Relationship="Self.FK_IDNCC_IDNCC" FromRole="SANPHAM" ToRole="NHACUNGCAP" />
   </EntityType>
   <EntityType Name="sysdiagram">
@@ -82,6 +90,62 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="TenTaiKhoan" />
+    </Key>
+    <Property Name="TenTaiKhoan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LoaiTaiKhoan" Type="Boolean" />
+  </EntityType>
+  <Association Name="fk_donhang">
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="1" />
+    <End Role="DONHANGCHITIET" Type="Self.DONHANGCHITIET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONHANG">
+        <PropertyRef Name="ID_DH" />
+      </Principal>
+      <Dependent Role="DONHANGCHITIET">
+        <PropertyRef Name="ID_DH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IDKH_IDKH">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="ID_KH" />
+      </Principal>
+      <Dependent Role="DONHANG">
+        <PropertyRef Name="ID_KH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IDNV_IDNV">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="ID_NV" />
+      </Principal>
+      <Dependent Role="DONHANG">
+        <PropertyRef Name="ID_NV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sanpham">
+    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+    <End Role="DONHANGCHITIET" Type="Self.DONHANGCHITIET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SANPHAM">
+        <PropertyRef Name="ID_SP" />
+      </Principal>
+      <Dependent Role="DONHANGCHITIET">
+        <PropertyRef Name="ID_SP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_IDNCC_IDNCC">
     <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="1" />
     <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
@@ -102,6 +166,23 @@
     <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
     <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
+    <AssociationSet Name="fk_donhang" Association="Self.fk_donhang">
+      <End Role="DONHANG" EntitySet="DONHANGs" />
+      <End Role="DONHANGCHITIET" EntitySet="DONHANGCHITIETs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IDKH_IDKH" Association="Self.FK_IDKH_IDKH">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="DONHANG" EntitySet="DONHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IDNV_IDNV" Association="Self.FK_IDNV_IDNV">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="DONHANG" EntitySet="DONHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sanpham" Association="Self.fk_sanpham">
+      <End Role="SANPHAM" EntitySet="SANPHAMs" />
+      <End Role="DONHANGCHITIET" EntitySet="DONHANGCHITIETs" />
+    </AssociationSet>
     <AssociationSet Name="FK_IDNCC_IDNCC" Association="Self.FK_IDNCC_IDNCC">
       <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
       <End Role="SANPHAM" EntitySet="SANPHAMs" />

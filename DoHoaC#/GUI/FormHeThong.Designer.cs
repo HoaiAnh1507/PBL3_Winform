@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.thongKe1 = new DoHoaC_.ThongKe();
-            this.nhanVien1 = new DoHoaC_.NhanVien();
-            this.ncc1 = new DoHoaC_.NCC();
-            this.khachHang1 = new DoHoaC_.KhachHang();
+            this.thongKe1 = new DoHoaC_.UserControlThongKe();
+            this.nhanVien1 = new DoHoaC_.UserControlNhanVien();
+            this.ncc1 = new DoHoaC_.UserControlNCC();
+            this.khachHang1 = new DoHoaC_.UserControlKhachHang();
             this.donHang1 = new DoHoaC_.DonHang();
-            this.sanPham1 = new DoHoaC_.SanPham();
-            this.heThong1 = new DoHoaC_.HeThong();
+            this.sanPham1 = new DoHoaC_.UserControlSanPham();
+            this.heThong1 = new DoHoaC_.HeThong_();
             this.BTSanPham = new System.Windows.Forms.Button();
             this.BTdonhang = new System.Windows.Forms.Button();
             this.BTkhachhang = new System.Windows.Forms.Button();
@@ -327,13 +327,13 @@
         private System.Windows.Forms.Button BTSanPham;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BTthongke;
-        private ThongKe thongKe1;
-        private NhanVien nhanVien1;
-        private NCC ncc1;
-        private KhachHang khachHang1;
+        private UserControlThongKe thongKe1;
+        private UserControlNhanVien nhanVien1;
+        private UserControlNCC ncc1;
+        private UserControlKhachHang khachHang1;
         private DonHang donHang1;
-        private SanPham sanPham1;
-        private HeThong heThong1;
+        private UserControlSanPham sanPham1;
+        private HeThong_ heThong1;
         //Add main panel
         //private System.Windows.Forms.Panel cardLayoutPanel;
         //this.cardLayoutPanel = new System.Windows.Forms.Panel();

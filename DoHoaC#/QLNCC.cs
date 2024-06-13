@@ -44,7 +44,7 @@ namespace DoHoaC_
                 if (string.IsNullOrWhiteSpace(ncc.TEN_NHA_CUNG_CAP))
                     throw new ArgumentException("Tên Nhà Cung Cấp không được để trống.", nameof(ncc.TEN_NHA_CUNG_CAP));
                 
-                if (IsNCCExists(ncc.TEN_NHA_CUNG_CAP))
+                if (IsNCCExists(ncc.TEN_NHA_CUNG_CAP, ncc.DIACHI, ncc.SDT))
                 {
                     throw new InvalidOperationException("Nhà Cung Cấp đã tồn tại trong cơ sở dữ liệu.");
                 }
@@ -67,7 +67,6 @@ namespace DoHoaC_
                 throw new Exception( ex.Message);
             }
         }
-
         public void UpdateNCC(string ID_NCC, DTB_NCC ncc)
         {
             try
@@ -152,15 +151,16 @@ namespace DoHoaC_
             }
             return dataSet;
         }
-
-        private bool IsNCCExists(string tenNCC)
+        private bool IsNCCExists(string tenNCC, string diachi, string sdt)
         {
-            string query = "SELECT COUNT(*) FROM NHACUNGCAP WHERE TEN_NHA_CUNG_CAP = @TEN_NHA_CUNG_CAP";
+            string query = "SELECT COUNT(*) FROM NHACUNGCAP WHERE TEN_NHA_CUNG_CAP = @TEN_NHA_CUNG_CAP AND DIACHI = @DIACHI AND SDT = @SDT";
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@TEN_NHA_CUNG_CAP", tenNCC);
+                    command.Parameters.AddWithValue("@DIACHI", diachi);
+                    command.Parameters.AddWithValue("@SDT", sdt);
                     connection.Open();
                     int count = (int)command.ExecuteScalar();
                     return count > 0;

@@ -13,10 +13,13 @@ namespace DoHoaC_
     public partial class FormDangNhap : Form
     {
         List<DTB_TaiKhoan> ListTaiKhoan = DanhSachTaiKhoan.Instance.ListTaiKhoan;
+        //public event EventHandler<FormHeThong> FormHeThongOpened;
+        public static FormDangNhap Instance;
         public string CurrentUsername { get; private set; }
         public FormDangNhap()
         {
             InitializeComponent();
+            Instance = this;
         }
         private void ThoatBT_Click(object sender, EventArgs e)
         {
@@ -28,6 +31,9 @@ namespace DoHoaC_
             if (KiemTraDangNhap(textBoxTenDN.Text, textBoxMatkhau.Text))
             {
                 CurrentUsername = textBoxTenDN.Text;
+                textBoxTenDN.Text = "";
+                textBoxMatkhau.Text = "";
+                textBoxTenDN.Focus();
                 this.Hide();
                 FormHeThong f = new FormHeThong();
                 f.Show();
@@ -56,6 +62,10 @@ namespace DoHoaC_
             {
                 if (KiemTraDangNhap(textBoxTenDN.Text, textBoxMatkhau.Text))
                 {
+                    CurrentUsername = textBoxTenDN.Text;
+                    textBoxTenDN.Text = "";
+                    textBoxMatkhau.Text = "";
+                    textBoxTenDN.Focus();
                     this.Hide();
                     FormHeThong f = new FormHeThong();
                     f.Show();

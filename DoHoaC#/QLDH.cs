@@ -80,7 +80,7 @@ namespace DoHoaC_
             }
             return null;
         }
-        public void AddDHCT(DTB_DH dh)
+        public void AddDH(DTB_DH dh)
         {
             try
             {
@@ -116,7 +116,7 @@ namespace DoHoaC_
                 throw new Exception(ex.Message);
             }
         }
-        public void UpdateDHCT(DTB_DH dh)
+        public void UpdateDH(DTB_DH dh)
         {
             try
             {
@@ -193,7 +193,7 @@ namespace DoHoaC_
             }
             return dataSet;
         }
-        public bool IsDHExists(string ID_DH)
+        public bool KiemTraDHTonTai(string ID_DH)
         {
             string query = "SELECT COUNT(*) FROM DONHANG WHERE ID_DH = @ID_DH";
 

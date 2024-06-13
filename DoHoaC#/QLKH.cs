@@ -44,7 +44,7 @@ namespace DoHoaC_
                 if (string.IsNullOrWhiteSpace(kh.TEN_KHACH_HANG))
                     throw new ArgumentException("Tên Khách hàng không được để trống.", nameof(kh.TEN_KHACH_HANG));
 
-                if (IsKHExists(kh.TEN_KHACH_HANG))
+                if (IsKHExists(kh.TEN_KHACH_HANG, kh.DIACHI, kh.SDT))
                 {
                     throw new InvalidOperationException("Khách hàng đã tồn tại trong cơ sở dữ liệu.");
                 }
@@ -150,15 +150,16 @@ namespace DoHoaC_
             }
             return dataSet;
         }
-
-        private bool IsKHExists(string tenKH)
+        private bool IsKHExists(string tenKH, string diachi, string sdt)
         {
-            string query = "SELECT COUNT(*) FROM KHACHHANG WHERE TEN_KHACH_HANG = @TEN_KHACH_HANG";
+            string query = "SELECT COUNT(*) FROM KHACHHANG WHERE TEN_KHACH_HANG = @TEN_KHACH_HANG AND DIACHI = @DIACHI AND SDT = @SDT";
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@TEN_KHACH_HANG", tenKH);
+                    command.Parameters.AddWithValue("@DIACHI", diachi);
+                    command.Parameters.AddWithValue("@SDT", sdt);
                     connection.Open();
                     int count = (int)command.ExecuteScalar();
                     return count > 0;
