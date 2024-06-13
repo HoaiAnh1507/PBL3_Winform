@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
+﻿using DoHoaC_.BusinessLogicLayer;
+using System;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DoHoaC_
 {
@@ -18,19 +12,19 @@ namespace DoHoaC_
             InitializeComponent();
             ShowAllNCC();
         }
-        private void ShowAllNCC()
+
+        public void ShowAllNCC()
         {
-            dataGridView1.DataSource = QLNCC.Instance.GetAllNCC().Tables["NHACUNGCAP"]; // Hiển thị danh sách Nhà Cung Cấp
-            textBoxTen.Clear();
-            textBoxDiachi.Clear();
-            textBoxSDT.Clear();
-            textBoxMota.Clear();
+            dataGridView1.DataSource = null;
+            BLL_QLNCC.Instance.GetAllNCC(dataGridView1);
+            refreshTextbox();
         }
+
         private void buttonThem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Xác nhận thêm thông tin nhà cung cấp mới?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Xác nhận thêm thông tin nhà cung cấp mới?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                DTB_NCC ncc = new DTB_NCC
+                var ncc = new NHACUNGCAP
                 {
                     TEN_NHA_CUNG_CAP = textBoxTen.Text,
                     DIACHI = textBoxDiachi.Text,
@@ -40,9 +34,19 @@ namespace DoHoaC_
 
                 try
                 {
-                    QLNCC.Instance.AddNCC(ncc); // Thêm Nhà Cung Cấp mới
+                    BLL_QLNCC.Instance.AddNCC(ncc); // Thêm Nhà Cung Cấp mới
                     MessageBox.Show("Thêm Nhà Cung Cấp thành công.");
                     ShowAllNCC(); // Tải lại dữ liệu sau khi thêm
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        row.Selected = false;
+                        if (Convert.ToInt32(row.Cells["ID_NCC"].Value) == ncc.ID_NCC)
+                        {
+                            row.Selected = true; // Chọn toàn bộ hàng
+                            DGVViewClick();
+                            break;
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -50,16 +54,16 @@ namespace DoHoaC_
                 }
             }
         }
+
         private void buttonSua_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Xác nhận chỉnh sửa thông tin nhà cung cấp?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Xác nhận chỉnh sửa thông tin nhà cung cấp?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    string ID_NCC = dataGridView1.SelectedRows[0].Cells["ID_NCC"].Value.ToString();
-                    DTB_NCC ncc = new DTB_NCC
+                    int ID_NCC = (int)dataGridView1.SelectedRows[0].Cells["ID_NCC"].Value;
+                    var ncc = new NHACUNGCAP
                     {
-                        ID_NCC = ID_NCC,
                         TEN_NHA_CUNG_CAP = textBoxTen.Text,
                         DIACHI = textBoxDiachi.Text,
                         SDT = textBoxSDT.Text,
@@ -68,9 +72,19 @@ namespace DoHoaC_
 
                     try
                     {
-                        QLNCC.Instance.UpdateNCC(ID_NCC, ncc); // Cập nhật thông tin Nhà Cung Cấp
+                        BLL_QLNCC.Instance.UpdateNCC(ID_NCC, ncc); // Cập nhật thông tin Nhà Cung Cấp
                         MessageBox.Show("Cập nhật Nhà Cung Cấp thành công.");
                         ShowAllNCC(); // Tải lại dữ liệu sau khi sửa
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            row.Selected = false;
+                            if (Convert.ToInt32(row.Cells["ID_NCC"].Value) == ID_NCC)
+                            {
+                                row.Selected = true; // Chọn toàn bộ hàng
+                                DGVViewClick();
+                                break;
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -83,16 +97,17 @@ namespace DoHoaC_
                 }
             }
         }
+
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Xác nhận xóa nhà cung cấp này?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Xác nhận xóa nhà cung cấp này?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    string ID_NCC = dataGridView1.SelectedRows[0].Cells["ID_NCC"].Value.ToString();
+                    int ID_NCC = (int)dataGridView1.SelectedRows[0].Cells["ID_NCC"].Value;
                     try
                     {
-                        QLNCC.Instance.DeleteNCC(ID_NCC); // Xóa Nhà Cung Cấp
+                        BLL_QLNCC.Instance.DeleteNCC(ID_NCC); // Xóa Nhà Cung Cấp
                         MessageBox.Show("Xóa Nhà Cung Cấp thành công.");
                         ShowAllNCC(); // Tải lại dữ liệu sau khi xóa
                     }
@@ -107,7 +122,29 @@ namespace DoHoaC_
                 }
             }
         }
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e) // Sự kiện click vào một ô trong DataGridView
+        {
+            DGVViewClick();
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string keyword = textBoxSearch.Text;
+                dataGridView1.DataSource = BLL_QLNCC.Instance.SearchNCC(keyword);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tìm kiếm Nhà Cung Cấp: {ex.Message}");
+            }
+        }
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            refreshTextbox();
+        }
+        private void DGVViewClick()
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -117,11 +154,12 @@ namespace DoHoaC_
                 textBoxMota.Text = dataGridView1.SelectedRows[0].Cells["INFOR"].Value.ToString();
             }
         }
-        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        private void refreshTextbox()
         {
-            string keyword = textBoxSearch.Text;
-            dataGridView1.DataSource = QLNCC.Instance.SearchNCC(keyword).Tables["NhaCungCap"];
+            textBoxTen.Clear();
+            textBoxDiachi.Clear();
+            textBoxSDT.Clear();
+            textBoxMota.Clear();
         }
     }
 }
-

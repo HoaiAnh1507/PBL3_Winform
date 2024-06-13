@@ -53,6 +53,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.Refresh = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel2.SuspendLayout();
@@ -195,6 +196,7 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.Refresh);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label1);
@@ -206,7 +208,7 @@
             // textBoxSL
             // 
             this.textBoxSL.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBoxSL.Location = new System.Drawing.Point(1575, 58);
+            this.textBoxSL.Location = new System.Drawing.Point(1429, 59);
             this.textBoxSL.Name = "textBoxSL";
             this.textBoxSL.Size = new System.Drawing.Size(155, 38);
             this.textBoxSL.TabIndex = 28;
@@ -214,24 +216,24 @@
             // textBoxDonGia
             // 
             this.textBoxDonGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBoxDonGia.Location = new System.Drawing.Point(1181, 58);
+            this.textBoxDonGia.Location = new System.Drawing.Point(1133, 59);
             this.textBoxDonGia.Name = "textBoxDonGia";
-            this.textBoxDonGia.Size = new System.Drawing.Size(248, 38);
+            this.textBoxDonGia.Size = new System.Drawing.Size(173, 38);
             this.textBoxDonGia.TabIndex = 27;
             // 
             // textBoxTen
             // 
             this.textBoxTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBoxTen.Location = new System.Drawing.Point(316, 58);
+            this.textBoxTen.Location = new System.Drawing.Point(33, 59);
             this.textBoxTen.Name = "textBoxTen";
-            this.textBoxTen.Size = new System.Drawing.Size(342, 38);
+            this.textBoxTen.Size = new System.Drawing.Size(314, 38);
             this.textBoxTen.TabIndex = 24;
             // 
             // cbbIdNCC
             // 
             this.cbbIdNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbbIdNCC.FormattingEnabled = true;
-            this.cbbIdNCC.Location = new System.Drawing.Point(721, 58);
+            this.cbbIdNCC.Location = new System.Drawing.Point(673, 59);
             this.cbbIdNCC.Name = "cbbIdNCC";
             this.cbbIdNCC.Size = new System.Drawing.Size(173, 39);
             this.cbbIdNCC.TabIndex = 7;
@@ -239,7 +241,7 @@
             // textBoxDonVi
             // 
             this.textBoxDonVi.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBoxDonVi.Location = new System.Drawing.Point(949, 58);
+            this.textBoxDonVi.Location = new System.Drawing.Point(901, 59);
             this.textBoxDonVi.Name = "textBoxDonVi";
             this.textBoxDonVi.Size = new System.Drawing.Size(171, 38);
             this.textBoxDonVi.TabIndex = 26;
@@ -248,7 +250,7 @@
             // 
             this.comboBoxDanhMuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.comboBoxDanhMuc.FormattingEnabled = true;
-            this.comboBoxDanhMuc.Location = new System.Drawing.Point(18, 58);
+            this.comboBoxDanhMuc.Location = new System.Drawing.Point(383, 58);
             this.comboBoxDanhMuc.Name = "comboBoxDanhMuc";
             this.comboBoxDanhMuc.Size = new System.Drawing.Size(238, 39);
             this.comboBoxDanhMuc.TabIndex = 7;
@@ -257,7 +259,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label7.Location = new System.Drawing.Point(1570, 15);
+            this.label7.Location = new System.Drawing.Point(1424, 16);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(120, 31);
             this.label7.TabIndex = 6;
@@ -267,7 +269,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(1176, 14);
+            this.label6.Location = new System.Drawing.Point(1128, 15);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 31);
             this.label6.TabIndex = 5;
@@ -277,7 +279,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(943, 14);
+            this.label5.Location = new System.Drawing.Point(895, 15);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 31);
             this.label5.TabIndex = 4;
@@ -287,7 +289,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(714, 15);
+            this.label4.Location = new System.Drawing.Point(666, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(117, 31);
             this.label4.TabIndex = 3;
@@ -297,7 +299,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(310, 14);
+            this.label3.Location = new System.Drawing.Point(27, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(186, 31);
             this.label3.TabIndex = 2;
@@ -307,7 +309,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label9.Location = new System.Drawing.Point(1456, 61);
+            this.label9.Location = new System.Drawing.Point(1325, 62);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 31);
             this.label9.TabIndex = 0;
@@ -317,11 +319,23 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(15, 15);
+            this.label1.Location = new System.Drawing.Point(380, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 31);
+            this.label1.Size = new System.Drawing.Size(186, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Danh mục";
+            this.label1.Text = "Tên danh mục";
+            // 
+            // Refresh
+            // 
+            this.Refresh.AutoSize = true;
+            this.Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Refresh.ForeColor = System.Drawing.Color.Red;
+            this.Refresh.Location = new System.Drawing.Point(1590, 64);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(250, 33);
+            this.Refresh.TabIndex = 2;
+            this.Refresh.Text = "↻ Làm mới dữ liệu";
+            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
             // 
             // UserControlSanPham
             // 
@@ -373,5 +387,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbbIdNCC;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label Refresh;
     }
 }

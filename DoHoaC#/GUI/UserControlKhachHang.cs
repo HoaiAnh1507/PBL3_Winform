@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -19,20 +11,19 @@ namespace DoHoaC_
             InitializeComponent();
             ShowAllKH();
         }
+
         public void ShowAllKH()
         {
-            dataGridView1.DataSource = QLKH.Instance.GetAllKhachHang().Tables["KHACHHANG"];
-            textBoxTen.Clear();
-            textBoxDiachi.Clear();
-            textBoxSDT.Clear();
-            textBoxMota.Clear();
+            dataGridView1.DataSource = null;
+            BLL_QLKH.Instance.GetAllKhachHang(dataGridView1);
+            refreshTextbox();
         }
 
         private void buttonThem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Xác nhận thêm thông tin khách hàng mới?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Xác nhận thêm thông tin khách hàng mới?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                DTB_KH kh = new DTB_KH
+                var kh = new KHACHHANG
                 {
                     TEN_KHACH_HANG = textBoxTen.Text,
                     DIACHI = textBoxDiachi.Text,
@@ -42,9 +33,19 @@ namespace DoHoaC_
 
                 try
                 {
-                    QLKH.Instance.AddKH(kh); // Thêm Khách hàng mới
+                    BLL_QLKH.Instance.AddKH(kh); // Thêm Khách hàng mới
                     MessageBox.Show("Thêm Khách Hàng thành công.");
-                    ShowAllKH(); // Tải lại dữ liệu sau khi thêm
+                    ShowAllKH(); // Reload data after adding
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        row.Selected = false;
+                        if (Convert.ToInt32(row.Cells["ID_SP"].Value) == kh.ID_KH)
+                        {
+                            row.Selected = true; // Chọn toàn bộ hàng
+                            DGVViewClick();
+                            break;
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -52,26 +53,38 @@ namespace DoHoaC_
                 }
             }
         }
+
         private void buttonSua_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Xác nhận chỉnh sửa thông tin khách hàng?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Xác nhận chỉnh sửa thông tin khách hàng?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    string ID_KH = dataGridView1.SelectedRows[0].Cells["ID_KH"].Value.ToString();
-                    DTB_KH kh = new DTB_KH
+                    int ID_KH = (int) dataGridView1.SelectedRows[0].Cells["ID_KH"].Value;
+                    var kh = new KHACHHANG
                     {
-                        ID_KH = ID_KH,
+                        //ID_KH = ID_KH,
                         TEN_KHACH_HANG = textBoxTen.Text,
                         DIACHI = textBoxDiachi.Text,
                         SDT = textBoxSDT.Text,
                         INFOR = textBoxMota.Text
                     };
+
                     try
                     {
-                        QLKH.Instance.UpdateKH(ID_KH, kh); // Cập nhật thông tin 
+                        BLL_QLKH.Instance.UpdateKH(ID_KH, kh); // Update Khách Hàng
                         MessageBox.Show("Cập nhật Khách Hàng thành công.");
-                        ShowAllKH(); // Tải lại dữ liệu sau khi sửa
+                        ShowAllKH(); // Reload data after updating
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            row.Selected = false;
+                            if (Convert.ToInt32(row.Cells["ID_SP"].Value) == kh.ID_KH)
+                            {
+                                row.Selected = true; // Chọn toàn bộ hàng
+                                DGVViewClick();
+                                break;
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -84,18 +97,19 @@ namespace DoHoaC_
                 }
             }
         }
+
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Xác nhận xóa khách hàng này?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Xác nhận xóa khách hàng này?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    string ID_KH = dataGridView1.SelectedRows[0].Cells["ID_KH"].Value.ToString();
+                    int ID_KH = (int)dataGridView1.SelectedRows[0].Cells["ID_KH"].Value;
                     try
                     {
-                        QLKH.Instance.DeleteKH(ID_KH); // Xóa Khách Hàng
+                        BLL_QLKH.Instance.DeleteKH(ID_KH); // Xóa Khách Hàng
                         MessageBox.Show("Xóa Khách Hàng thành công.");
-                        ShowAllKH(); // Tải lại dữ liệu sau khi xóa
+                        ShowAllKH(); // Reload data after deletion
                     }
                     catch (Exception ex)
                     {
@@ -108,7 +122,30 @@ namespace DoHoaC_
                 }
             }
         }
+        
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DGVViewClick();
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string keyword = textBoxSearch.Text;
+                dataGridView1.DataSource = BLL_QLKH.Instance.SearchKH(keyword);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tìm kiếm Khách Hàng: {ex.Message}");
+            }
+        }
+
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            refreshTextbox();
+        }
+        private void DGVViewClick()
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -118,11 +155,12 @@ namespace DoHoaC_
                 textBoxMota.Text = dataGridView1.SelectedRows[0].Cells["INFOR"].Value.ToString();
             }
         }
-
-        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        private void refreshTextbox()
         {
-            string keyword = textBoxSearch.Text;
-            dataGridView1.DataSource = QLKH.Instance.SearchKH(keyword).Tables["KhachHang"];
+            textBoxTen.Clear();
+            textBoxDiachi.Clear();
+            textBoxSDT.Clear();
+            textBoxMota.Clear();
         }
     }
 }

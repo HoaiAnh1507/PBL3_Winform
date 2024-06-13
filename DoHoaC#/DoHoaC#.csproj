@@ -157,8 +157,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicLayer\BLL_QLKH.cs" />
     <Compile Include="BusinessLogicLayer\BLL_QLSP.cs" />
     <Compile Include="Const.cs" />
+    <Compile Include="DataAccessLayer\DAL_QLKH.cs" />
     <Compile Include="DataAccessLayer\DAL_QLSP.cs" />
     <Compile Include="DONHANG.cs">
       <DependentUpon>DTB.tt</DependentUpon>
@@ -180,21 +182,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DTB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DTB_First.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DTB_First.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTB_First.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DTB_First.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTB_First.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DTB_First.edmx</DependentUpon>
     </Compile>
     <Compile Include="DTO\DTB_DH.cs" />
     <Compile Include="DTO\DTB_SP.cs" />
@@ -350,19 +337,12 @@
     <EmbeddedResource Include="GUI\UserControlThongKe.resx">
       <DependentUpon>UserControlThongKe.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="DTB_First.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DTB_First.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <EntityDeploy Include="DTB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DTB.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="DTB.edmx.diagram">
       <DependentUpon>DTB.edmx</DependentUpon>
-    </None>
-    <None Include="DTB_First.edmx.diagram">
-      <DependentUpon>DTB_First.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -438,16 +418,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DTB.edmx</DependentUpon>
       <LastGenOutput>DTB.cs</LastGenOutput>
-    </Content>
-    <Content Include="DTB_First.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DTB_First.Context.cs</LastGenOutput>
-      <DependentUpon>DTB_First.edmx</DependentUpon>
-    </Content>
-    <Content Include="DTB_First.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DTB_First.edmx</DependentUpon>
-      <LastGenOutput>DTB_First.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

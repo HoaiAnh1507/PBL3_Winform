@@ -46,6 +46,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.buttonSua = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Refresh = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -56,6 +57,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.Refresh);
             this.panel1.Controls.Add(this.textBoxTen);
             this.panel1.Controls.Add(this.textBoxMota);
             this.panel1.Controls.Add(this.label5);
@@ -80,16 +82,16 @@
             // textBoxMota
             // 
             this.textBoxMota.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBoxMota.Location = new System.Drawing.Point(1277, 63);
+            this.textBoxMota.Location = new System.Drawing.Point(1200, 63);
             this.textBoxMota.Name = "textBoxMota";
-            this.textBoxMota.Size = new System.Drawing.Size(532, 38);
+            this.textBoxMota.Size = new System.Drawing.Size(296, 38);
             this.textBoxMota.TabIndex = 26;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(1272, 15);
+            this.label5.Location = new System.Drawing.Point(1195, 15);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 31);
             this.label5.TabIndex = 4;
@@ -100,7 +102,7 @@
             this.textBoxSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.textBoxSDT.Location = new System.Drawing.Point(893, 63);
             this.textBoxSDT.Name = "textBoxSDT";
-            this.textBoxSDT.Size = new System.Drawing.Size(339, 38);
+            this.textBoxSDT.Size = new System.Drawing.Size(259, 38);
             this.textBoxSDT.TabIndex = 25;
             // 
             // label4
@@ -117,7 +119,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(407, 15);
+            this.label3.Location = new System.Drawing.Point(420, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 31);
             this.label3.TabIndex = 2;
@@ -136,7 +138,7 @@
             // textBoxDiachi
             // 
             this.textBoxDiachi.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBoxDiachi.Location = new System.Drawing.Point(413, 63);
+            this.textBoxDiachi.Location = new System.Drawing.Point(426, 63);
             this.textBoxDiachi.Name = "textBoxDiachi";
             this.textBoxDiachi.Size = new System.Drawing.Size(421, 38);
             this.textBoxDiachi.TabIndex = 24;
@@ -241,7 +243,19 @@
             this.panel2.Size = new System.Drawing.Size(1877, 123);
             this.panel2.TabIndex = 35;
             // 
-            // NCC
+            // Refresh
+            // 
+            this.Refresh.AutoSize = true;
+            this.Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Refresh.ForeColor = System.Drawing.Color.Red;
+            this.Refresh.Location = new System.Drawing.Point(1561, 63);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(250, 33);
+            this.Refresh.TabIndex = 27;
+            this.Refresh.Text = "↻ Làm mới dữ liệu";
+            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
+            // 
+            // UserControlNCC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -250,7 +264,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "NCC";
+            this.Name = "UserControlNCC";
             this.Size = new System.Drawing.Size(1937, 857);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -283,5 +297,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button buttonSua;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label Refresh;
     }
 }

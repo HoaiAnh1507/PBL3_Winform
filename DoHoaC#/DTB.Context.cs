@@ -13,10 +13,10 @@ namespace DoHoaC_
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PBL3_CSDLEntities1 : DbContext
+    public partial class PBL3_CSDLEntities : DbContext
     {
-        public PBL3_CSDLEntities1()
-            : base("name=PBL3_CSDLEntities1")
+        public PBL3_CSDLEntities()
+            : base("name=PBL3_CSDLEntities")
         {
         }
     

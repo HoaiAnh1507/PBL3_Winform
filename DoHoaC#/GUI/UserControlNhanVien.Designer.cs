@@ -46,6 +46,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Refresh = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -163,6 +164,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.Refresh);
             this.panel1.Controls.Add(this.textBoxTen);
             this.panel1.Controls.Add(this.textBoxDiachi);
             this.panel1.Controls.Add(this.textBoxSDT);
@@ -181,13 +183,13 @@
             this.textBoxTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.textBoxTen.Location = new System.Drawing.Point(52, 63);
             this.textBoxTen.Name = "textBoxTen";
-            this.textBoxTen.Size = new System.Drawing.Size(419, 38);
+            this.textBoxTen.Size = new System.Drawing.Size(382, 38);
             this.textBoxTen.TabIndex = 23;
             // 
             // textBoxDiachi
             // 
             this.textBoxDiachi.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBoxDiachi.Location = new System.Drawing.Point(507, 63);
+            this.textBoxDiachi.Location = new System.Drawing.Point(476, 63);
             this.textBoxDiachi.Name = "textBoxDiachi";
             this.textBoxDiachi.Size = new System.Drawing.Size(411, 38);
             this.textBoxDiachi.TabIndex = 24;
@@ -195,24 +197,24 @@
             // textBoxSDT
             // 
             this.textBoxSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBoxSDT.Location = new System.Drawing.Point(973, 63);
+            this.textBoxSDT.Location = new System.Drawing.Point(932, 63);
             this.textBoxSDT.Name = "textBoxSDT";
-            this.textBoxSDT.Size = new System.Drawing.Size(406, 38);
+            this.textBoxSDT.Size = new System.Drawing.Size(268, 38);
             this.textBoxSDT.TabIndex = 25;
             // 
             // textBoxChucvu
             // 
             this.textBoxChucvu.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBoxChucvu.Location = new System.Drawing.Point(1413, 63);
+            this.textBoxChucvu.Location = new System.Drawing.Point(1237, 63);
             this.textBoxChucvu.Name = "textBoxChucvu";
-            this.textBoxChucvu.Size = new System.Drawing.Size(409, 38);
+            this.textBoxChucvu.Size = new System.Drawing.Size(265, 38);
             this.textBoxChucvu.TabIndex = 26;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(1407, 15);
+            this.label5.Location = new System.Drawing.Point(1231, 15);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(114, 31);
             this.label5.TabIndex = 4;
@@ -222,7 +224,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(967, 15);
+            this.label4.Location = new System.Drawing.Point(926, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(136, 31);
             this.label4.TabIndex = 3;
@@ -232,7 +234,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(502, 15);
+            this.label3.Location = new System.Drawing.Point(471, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 31);
             this.label3.TabIndex = 2;
@@ -248,7 +250,19 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên nhân viên";
             // 
-            // NhanVien
+            // Refresh
+            // 
+            this.Refresh.AutoSize = true;
+            this.Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Refresh.ForeColor = System.Drawing.Color.Red;
+            this.Refresh.Location = new System.Drawing.Point(1567, 65);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(250, 33);
+            this.Refresh.TabIndex = 27;
+            this.Refresh.Text = "↻ Làm mới dữ liệu";
+            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
+            // 
+            // UserControlNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -257,7 +271,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "NhanVien";
+            this.Name = "UserControlNhanVien";
             this.Size = new System.Drawing.Size(1937, 857);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -290,5 +304,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Refresh;
     }
 }

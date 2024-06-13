@@ -46,6 +46,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.Refresh = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -157,6 +158,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.panel5.Controls.Add(this.Refresh);
             this.panel5.Controls.Add(this.textBoxTen);
             this.panel5.Controls.Add(this.textBoxDiachi);
             this.panel5.Controls.Add(this.textBoxSDT);
@@ -191,22 +193,22 @@
             this.textBoxSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSDT.Location = new System.Drawing.Point(890, 65);
             this.textBoxSDT.Name = "textBoxSDT";
-            this.textBoxSDT.Size = new System.Drawing.Size(347, 38);
+            this.textBoxSDT.Size = new System.Drawing.Size(238, 38);
             this.textBoxSDT.TabIndex = 25;
             // 
             // textBoxMota
             // 
             this.textBoxMota.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMota.Location = new System.Drawing.Point(1277, 65);
+            this.textBoxMota.Location = new System.Drawing.Point(1176, 65);
             this.textBoxMota.Name = "textBoxMota";
-            this.textBoxMota.Size = new System.Drawing.Size(537, 38);
+            this.textBoxMota.Size = new System.Drawing.Size(380, 38);
             this.textBoxMota.TabIndex = 26;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1270, 17);
+            this.label1.Location = new System.Drawing.Point(1169, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 31);
             this.label1.TabIndex = 4;
@@ -242,7 +244,19 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "Tên khách hàng";
             // 
-            // KhachHang
+            // Refresh
+            // 
+            this.Refresh.AutoSize = true;
+            this.Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Refresh.ForeColor = System.Drawing.Color.Red;
+            this.Refresh.Location = new System.Drawing.Point(1598, 65);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(250, 33);
+            this.Refresh.TabIndex = 27;
+            this.Refresh.Text = "↻ Làm mới dữ liệu";
+            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
+            // 
+            // UserControlKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -251,7 +265,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "KhachHang";
+            this.Name = "UserControlKhachHang";
             this.Size = new System.Drawing.Size(1937, 857);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -284,5 +298,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label Refresh;
     }
 }

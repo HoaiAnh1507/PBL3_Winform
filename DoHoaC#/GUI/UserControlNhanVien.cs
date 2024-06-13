@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
+﻿using DoHoaC_.BusinessLogicLayer;
+using System;
 using System.Windows.Forms;
 
 namespace DoHoaC_
@@ -18,19 +11,21 @@ namespace DoHoaC_
             InitializeComponent();
             ShowAllNV();
         }
+
         private void ShowAllNV()
         {
-            dataGridView1.DataSource = QLNV.Instance.GetAllNV().Tables["NHANVIEN"] ;
+            dataGridView1.DataSource = BLL_QLNV.Instance.GetAllNhanVien();
             textBoxTen.Clear();
             textBoxDiachi.Clear();
             textBoxSDT.Clear();
             textBoxChucvu.Clear();
         }
+
         private void buttonThemNV_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Xác nhận thêm thông tin nhân viên mới?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Xác nhận thêm thông tin nhân viên mới?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                DTB_NV nv = new DTB_NV
+                var nv = new NHANVIEN
                 {
                     TEN_NHAN_VIEN = textBoxTen.Text,
                     DIACHI = textBoxDiachi.Text,
@@ -40,7 +35,7 @@ namespace DoHoaC_
 
                 try
                 {
-                    QLNV.Instance.AddNV(nv);
+                    BLL_QLNV.Instance.AddNhanVien(nv);
                     MessageBox.Show("Thêm Nhân viên thành công.");
                     ShowAllNV();
                 }
@@ -50,24 +45,25 @@ namespace DoHoaC_
                 }
             }
         }
+
         private void buttonSuaNV_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Xác nhận chỉnh sửa thông tin nhân viên?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Xác nhận chỉnh sửa thông tin nhân viên?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    string ID_NV = dataGridView1.SelectedRows[0].Cells["ID_NV"].Value.ToString();
-                    DTB_NV nv = new DTB_NV
+                    int ID_NV = int.Parse(dataGridView1.SelectedRows[0].Cells["ID_NV"].Value.ToString());
+                    var nv = new NHANVIEN
                     {
-                        ID_NV = ID_NV,
                         TEN_NHAN_VIEN = textBoxTen.Text,
                         DIACHI = textBoxDiachi.Text,
                         SDT = textBoxSDT.Text,
                         CHUCVU = textBoxChucvu.Text
                     };
+
                     try
                     {
-                        QLNV.Instance.UpdateNV(ID_NV, nv);
+                        BLL_QLNV.Instance.UpdateNhanVien(ID_NV, nv);
                         MessageBox.Show("Cập nhật Nhân viên thành công.");
                         ShowAllNV();
                     }
@@ -82,16 +78,17 @@ namespace DoHoaC_
                 }
             }
         }
+
         private void buttonXoaNV_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Xác nhận xóa nhân viên này?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Xác nhận xóa nhân viên này?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    string ID_NV = dataGridView1.SelectedRows[0].Cells["ID_NV"].Value.ToString();
+                    int ID_NV = int.Parse(dataGridView1.SelectedRows[0].Cells["ID_NV"].Value.ToString());
                     try
                     {
-                        QLNV.Instance.DeleteNV(ID_NV);
+                        BLL_QLNV.Instance.DeleteNhanVien(ID_NV);
                         MessageBox.Show("Xóa Nhân viên thành công.");
                         ShowAllNV();
                     }
@@ -106,6 +103,7 @@ namespace DoHoaC_
                 }
             }
         }
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -114,15 +112,13 @@ namespace DoHoaC_
                 textBoxDiachi.Text = dataGridView1.SelectedRows[0].Cells["DIACHI"].Value.ToString();
                 textBoxSDT.Text = dataGridView1.SelectedRows[0].Cells["SDT"].Value.ToString();
                 textBoxChucvu.Text = dataGridView1.SelectedRows[0].Cells["CHUCVU"].Value.ToString();
-
             }
         }
+
         private void textBoxTimkiem_TextChanged(object sender, EventArgs e)
         {
             string keyword = textBoxTimkiem.Text;
-            //List<DTB_NV> searchResult = QLNV.Instance.SearchNV(keyword);
-            dataGridView1.DataSource = QLNV.Instance.SearchNV(keyword).Tables["NHANVIEN"];
+            dataGridView1.DataSource = BLL_QLNV.Instance.SearchNhanVien(keyword);
         }
-        
     }
 }
