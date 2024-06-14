@@ -1,9 +1,10 @@
-﻿using System;
+﻿using DoHoaC_.DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
-namespace DoHoaC_
+namespace DoHoaC_.BusinessLogicLayer
 {
     public class BLL_QLSP
     {

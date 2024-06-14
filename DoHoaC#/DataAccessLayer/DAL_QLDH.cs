@@ -8,28 +8,36 @@ namespace DoHoaC_.DataAccessLayer
 {
     public class DAL_QLDH
     {
-        private static DAL_QLDH _Instance;
-        public static DAL_QLDH Instance
-        {
-            get
-            {
-                if (_Instance == null)
-                    _Instance = new DAL_QLDH();
-                return _Instance;
-            }
-            private set { }
-        }
+        PBL3_CSDLEntities _context;
 
-        private  PBL3_CSDLEntities _context;
-
-        private DAL_QLDH()
+        public DAL_QLDH()
         {
             _context = new PBL3_CSDLEntities();
         }
 
-        public List<DONHANG> GetDH()
+        public dynamic GetDH()
         {
-            return _context.DONHANGs.ToList();
+            try
+            {
+                var dh = _context.DONHANGs
+                .Select(s => new
+                {
+                    s.ID_DH,
+                    s.ID_KH,
+                    s.TEN_KHACH_HANG,
+                    s.ID_NV,
+                    s.TEN_NHAN_VIEN,
+                    s.NGAY_MUA,
+                    s.TONG_THANH_TOAN,
+                    s.TRANG_THAI
+                }).ToList();
+                return dh;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Lỗi khi lấy tất cả Đơn hàng từ cơ sở dữ liệu.", ex);
+            }
+            
         }
 
         public string GetKHNV(int iddh, string ten)
@@ -91,6 +99,7 @@ namespace DoHoaC_.DataAccessLayer
                              dh.ID_KH.ToString().Contains(keyword))
                 .ToList();
         }
+
 
         public bool KiemTraDHTonTai(int ID_DH)
         {

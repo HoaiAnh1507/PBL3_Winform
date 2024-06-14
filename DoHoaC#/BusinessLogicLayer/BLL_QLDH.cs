@@ -1,56 +1,67 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using DoHoaC_.DataAccessLayer;
 
 namespace DoHoaC_.BusinessLogicLayer
 {
     public class BLL_QLDH
     {
-        private static BLL_QLDH _Instance;
-        public static BLL_QLDH Instance
+        private  DAL_QLDH _dal;
+        public  BLL_QLDH()
         {
-            get
-            {
-                if (_Instance == null)
-                    _Instance = new BLL_QLDH();
-                return _Instance;
-            }
-            private set { }
+            _dal = new DAL_QLDH();
         }
-
-        public List<DONHANG> GetDH()
+        public static BLL_QLDH Instance { get; } = new BLL_QLDH();
+        public void GetDH(DataGridView dgv)
         {
-            return DAL_QLDH.Instance.GetDH();
+            dgv.DataSource = _dal.GetDH();
         }
 
         public string GetKHNV(int iddh, string ten)
         {
-            return DAL_QLDH.Instance.GetKHNV(iddh, ten);
+            return _dal.GetKHNV(iddh, ten);
         }
 
         public void AddDH(DONHANG dh)
         {
-            DAL_QLDH.Instance.AddDH(dh);
+            if (dh == null)
+                throw new ArgumentNullException(nameof(dh), "Thông tin sản phẩm không được để trống.");
+            if (string.IsNullOrWhiteSpace(dh.ID_NV.ToString()))
+                throw new ArgumentException("Thông tin Nhân viên không được để trống.");
+            if (string.IsNullOrWhiteSpace(dh.ID_KH.ToString()))
+                throw new ArgumentException("Thông tin Khách hàng không được để trống.");
+            if (KiemTraDHTonTai(dh.ID_DH))
+            {
+                throw new InvalidOperationException("Đơn hàng đã tồn tại trong cơ sở dữ liệu.");
+            }
+            _dal.AddDH(dh);
         }
 
         public void UpdateDH(DONHANG dh)
         {
-            DAL_QLDH.Instance.UpdateDH(dh);
+            if (dh == null)
+                throw new ArgumentNullException(nameof(dh), "Thông tin sản phẩm không được để trống.");
+            if (string.IsNullOrWhiteSpace(dh.ID_NV.ToString()))
+                throw new ArgumentException("Thông tin Nhân viên không được để trống.");
+            if (string.IsNullOrWhiteSpace(dh.ID_KH.ToString()))
+                throw new ArgumentException("Thông tin Khách hàng không được để trống.");
+            _dal.UpdateDH(dh);
         }
 
         public void DeleteDH(int id_dh)
         {
-            DAL_QLDH.Instance.DeleteDH(id_dh);
+            _dal.DeleteDH(id_dh);
         }
 
         public List<DONHANG> SearchDH(string keyword)
         {
-            return DAL_QLDH.Instance.SearchDH(keyword);
+            return _dal.SearchDH(keyword);
         }
 
         public bool KiemTraDHTonTai(int ID_DH)
         {
-            return DAL_QLDH.Instance.KiemTraDHTonTai(ID_DH);
+            return _dal.KiemTraDHTonTai(ID_DH);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 
-namespace DoHoaC_
+namespace DoHoaC_.DataAccessLayer
 {
     public class DAL_QLSP
     {

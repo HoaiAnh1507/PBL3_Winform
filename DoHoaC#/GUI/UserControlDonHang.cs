@@ -2,34 +2,35 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DoHoaC_
 {
     public partial class DonHang : UserControl
     {
+        private BLL_QLDH _bllQLDH;
 
         public DonHang()
         {
             InitializeComponent();
+            _bllQLDH = new BLL_QLDH();
             ShowDH();
         }
+
         public event EventHandler<FormDonHangChiTiet> DonHangChiTietOpened;
+
         public void ShowDH()
         {
-            dataGridView1.DataSource = QLDH.Instance.GetDH().Tables["DONHANG"];
+            _bllQLDH.GetDH(dataGridView1);
             textBoxTenKH.Clear();
             textBoxTenNV.Clear();
             textBoxTongTien.Clear();
             RBTDaTT.Checked = false;
             RBTChuaTT.Checked = false;
         }
+
         private void ThemBT_Click(object sender, EventArgs e)
         {
             try
@@ -43,11 +44,10 @@ namespace DoHoaC_
             {
                 MessageBox.Show($"Lỗi khi thêm Đơn hàng: {ex.Message}");
             }
-
         }
+
         private void buttonSua_Click(object sender, EventArgs e)
         {
-
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 bool trangthai = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells["TRANG_THAI"].Value);
@@ -79,6 +79,7 @@ namespace DoHoaC_
                 MessageBox.Show("Vui lòng chọn một Đơn hàng để sửa.");
             }
         }
+
         private void buttonXoa_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -97,8 +98,7 @@ namespace DoHoaC_
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
-                            QLDHCT.Instance.DeleteDHCT(iddh.ToString());
-                            QLDH.Instance.DeleteDH(iddh.ToString());
+                            _bllQLDH.DeleteDH(iddh);
                             ShowDH();
                         }
                     }
@@ -113,6 +113,7 @@ namespace DoHoaC_
                 MessageBox.Show("Vui lòng chọn một Đơn hàng để xóa.");
             }
         }
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -140,15 +141,15 @@ namespace DoHoaC_
                 }
                 else
                 {
-                    // Nếu giá trị của ô dữ liệu NGAY_MUA là DBNull, đặt DateTimePicker1 về thời gian hiện tại
                     dateTimePicker1.Value = DateTime.Now;
                 }
             }
         }
+
         private void textBoxFind_TextChanged(object sender, EventArgs e)
         {
             string keyword = textBoxFind.Text;
-            dataGridView1.DataSource = QLDH.Instance.SearchDH(keyword).Tables["DONHANG"];
+            dataGridView1.DataSource = _bllQLDH.SearchDH(keyword);
         }
     }
 }
